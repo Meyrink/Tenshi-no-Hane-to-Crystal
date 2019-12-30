@@ -1,0 +1,14 @@
+﻿FormatVersion: 6
+Name: "WhiteBg 1"
+Script: "WhiteBg"
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  61339398f6a84198875c0a712dea1f69:
+    Name: "White"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
