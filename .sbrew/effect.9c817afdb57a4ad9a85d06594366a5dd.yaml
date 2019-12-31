@@ -1,14 +1,14 @@
 ﻿FormatVersion: 6
-Name: "Scenes 1"
-Script: "Scenes"
+Name: "Main BG Yeet"
+Script: "MainBGYeet"
 Config:
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  3aeb18fe117c42428b82d4ea48f6c92d:
-    Name: "Meguru"
+  064776a9d6394857a9b9e348f0ad082a:
+    Name: "Yeet"
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes

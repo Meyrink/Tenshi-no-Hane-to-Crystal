@@ -1,0 +1,17 @@
+﻿FormatVersion: 6
+Name: "Chorus 3"
+Script: "SceneHeart"
+Config:
+  movement:
+    Type: "System.Single"
+    Value: "4"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  312b7044b9044dd3b4a1f30bb2583228:
+    Name: "Heart"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
