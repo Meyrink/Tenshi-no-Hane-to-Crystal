@@ -25,8 +25,7 @@ namespace StorybrewScripts
             cinema.Fade(58533, 1);
             cinema.Fade(73078, 0);
 
-            cinema.Scale(OsbEasing.InCubic, 58987, 59101, Constants.screenScale, 0.68);
-            cinema.Scale(OsbEasing.OutCubic, 59101, 59215, 0.68, Constants.screenScale);
+            Helpers.bounceEffect(58987, cinema);
 
             cinemaHold.Scale(72851, Constants.screenScale);
             cinemaHold.Fade(OsbEasing.OutSine ,72851, 72851 + 227, 0, 1);

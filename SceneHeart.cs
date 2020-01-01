@@ -74,7 +74,8 @@ namespace StorybrewScripts
             heartFinal.Fade(266033, 0);
         }
 
-        private OsbSprite floatingEffect(double startTime, float moveX, float moveY, OsbSprite sprite) {
+        private OsbSprite floatingEffect(double startTime, float moveX, float moveY, OsbSprite sprite) 
+        {
             var endTime = startTime + 1818;
             sprite.Move(
             startTime, endTime, 
@@ -84,7 +85,8 @@ namespace StorybrewScripts
             return sprite;
         }
 
-        private Vector2 multiply(Vector2 v, Matrix2 m) {
+        private Vector2 multiply(Vector2 v, Matrix2 m) 
+        {
             return new Vector2 (
             m.M11 * v.X + m.M21 * v.Y, // x
             m.M12 * v.X + m.M22 * v.Y  // y

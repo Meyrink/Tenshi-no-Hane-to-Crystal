@@ -23,8 +23,7 @@ namespace StorybrewScripts
             thighs.Fade(142624, 1);
             thighs.Fade(182396, 0); // To fade for transition
 
-            thighs.Scale(OsbEasing.InCubic, 142624, 142737, Constants.screenScale, 0.69);
-            thighs.Scale(OsbEasing.OutCubic, 142737, 142851, 0.69, Constants.screenScale);
+            Helpers.bounceEffect(142624, thighs);
 
             // Meguru Expressions
             Vector2 face = Helpers.faceLocationHandler(299f, 199f);

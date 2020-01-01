@@ -52,10 +52,12 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="Credit.cs" />
     <Compile Include="Flash.cs" />
     <Compile Include="Intro.cs" />
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
+    <Compile Include="RoomClub.cs" />
     <Compile Include="SceneCinema.cs" />
     <Compile Include="SceneDesk.cs" />
     <Compile Include="SceneHandHold.cs" />

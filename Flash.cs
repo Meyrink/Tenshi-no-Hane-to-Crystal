@@ -16,7 +16,7 @@ namespace StorybrewScripts
     {
         [Configurable]
         public float startOpacity = 0.30f;
-                [Configurable]
+        [Configurable]
         public float beatDivisor = 1.0f;
 
         public override void Generate()
@@ -28,11 +28,12 @@ namespace StorybrewScripts
             flash.Fade(0, 0);
 
             // Intro
-            flashIt(805, flash, beatDivisor, startOpacity); //BG1
-            flashIt(1715, flash, beatDivisor, startOpacity); //BG2
-            flashIt(2624, flash, beatDivisor, startOpacity); //BG3
-            flashIt(3533, flash, beatDivisor, startOpacity); //BG4
-            flashIt(4442, flash, beatDivisor / 4, startOpacity); //BG5
+            flashIt(805, flash, beatDivisor, startOpacity); // BG1
+            flashIt(1715, flash, beatDivisor, startOpacity); // BG2
+            flashIt(2624, flash, beatDivisor, startOpacity); // BG3
+            flashIt(3533, flash, beatDivisor, startOpacity); // BG4
+            flashIt(4442, flash, beatDivisor / 4, startOpacity); // BG5
+            flashIt(6260, flash, beatDivisor / 2, startOpacity); // Credit
 
             flashIt(7851, flash, beatDivisor, startOpacity); // Inst 1
             flashIt(22169, flash, beatDivisor, startOpacity); // Verse 1
@@ -45,7 +46,8 @@ namespace StorybrewScripts
             flashIt(266033, flash, beatDivisor, startOpacity); // Inst 3
         }
 
-        private static OsbSprite flashIt (int startTime, OsbSprite sprite, double beatDivisor, float startOpacity) {
+        private static OsbSprite flashIt (int startTime, OsbSprite sprite, double beatDivisor, float startOpacity) 
+        {
             var endTime = startTime + Constants.beatLength / beatDivisor;
             sprite.Fade(startTime, endTime, startOpacity, 0);
             sprite.Additive(startTime, endTime);

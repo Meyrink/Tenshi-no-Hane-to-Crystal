@@ -14,24 +14,25 @@ namespace StorybrewScripts
 {
     public class MainBGYeet : StoryboardObjectGenerator
     {
+        [Configurable]
+        public float WhiteBGOpacity = 0.8f; 
         public override void Generate()
         {
-		    var yeet = GetLayer("Yeet");
+		    var yeet = GetLayer("Main BG Removal");
             var yeetBg = yeet.CreateSprite("Meguru.jpg",OsbOrigin.Centre); 
             yeetBg.Fade(0, 0);
 
-            var white = GetLayer("WhiteBG");
+            var white = GetLayer("White Background");
             var whiteBg = white.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             var bitmap = GetMapsetBitmap("sb/pixel.png");
 
             whiteBg.ScaleVec(0, 854.0 / bitmap.Width, 480.0 / bitmap.Height);
 
-            whiteBg.Fade(0, 1);
+            whiteBg.Fade(0, WhiteBGOpacity);
             whiteBg.Fade(805, 0);
 
-            whiteBg.Fade(6260, 1);
+            whiteBg.Fade(6260, WhiteBGOpacity);
             whiteBg.Fade(7851, 0);
-
         }
     }
 }

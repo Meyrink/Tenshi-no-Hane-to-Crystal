@@ -20,13 +20,6 @@ namespace StorybrewScripts
     }
 
     public class Helpers {
-        
-        /// <summary>Sets the move, scale and fade on a given sprite</summary>
-        /// <param name="path">the path to the specified sprite</param>
-        /// <param name="startTime">start of the function</param>
-        /// <param name="endTime">end of the function</param>
-        /// <param name="x">x positon</param>
-        /// <param name="y">y position</param>
         public static OsbSprite moveScaleAndFade(string path, double startTime, double endTime, double x, double y, StoryboardLayer layer) {
             OsbSprite sprite = moveScaleAndFadeIn(path, startTime, endTime, x, y, layer);
             sprite.Fade(endTime, endTime + Constants.beatLength/4, 1, 0);
@@ -50,6 +43,14 @@ namespace StorybrewScripts
             float y = 480 * yRatio;
             
             return new Vector2(x, y);
+        }
+
+        public static OsbSprite bounceEffect(double startTime, OsbSprite sprite)
+        {
+            sprite.Scale(OsbEasing.InCubic, startTime, startTime + Constants.beatLength / 4, Constants.screenScale, 0.69);
+            startTime = startTime + Constants.beatLength / 4;
+            sprite.Scale(OsbEasing.OutCubic, startTime, startTime + Constants.beatLength / 4, 0.69, Constants.screenScale);
+            return sprite;
         } 
     }
 }

@@ -1,0 +1,14 @@
+﻿FormatVersion: 6
+Name: "Inst 1"
+Script: "RoomClub"
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  e695a81967124de5ba41de6f5b2f8f04:
+    Name: "ClubRoom"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes

@@ -4,7 +4,7 @@ Script: "SceneHeart"
 Config:
   movement:
     Type: "System.Single"
-    Value: "2"
+    Value: "1"
   rotation:
     Type: "System.Int32"
     Value: "1"

@@ -26,8 +26,7 @@ namespace StorybrewScripts
             desk.Rotate(OsbEasing.OutCirc, 22169, 22624, MathHelper.DegreesToRadians(40), 0);
             desk.Fade(58533, 1);
 
-            desk.Scale(OsbEasing.InCubic, 22624, 22737, Constants.screenScale, 0.68);
-            desk.Scale(OsbEasing.OutCubic, 22737, 22851, 0.68, Constants.screenScale);
+            Helpers.bounceEffect(22624, desk);
 
             deskBlur.Fade(22169, 0.7);
             deskBlur.Fade(22169, 22851, desk.OpacityAt(22283), 0);
@@ -45,6 +44,7 @@ namespace StorybrewScripts
             deskFinal.Fade(58533, 0);
             
             /* 
+            // Attempt to scal both bg and face while keeping it a one picture
             Log(x + " " + y);
             Vector2 V1 = new Vector2(320f, 240f);
             Vector2 V2 = new Vector2(294.98058f, 295.6667f);

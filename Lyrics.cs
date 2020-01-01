@@ -15,7 +15,7 @@ namespace StorybrewScripts
         public string SubtitlesPath = "lyrics.srt";
 
         [Configurable]
-        public string FontName = "Verdana";
+        public string FontName = "Source Han Sans JP";
 
         [Configurable]
         public string SpritesPath = "sb/f";
