@@ -35,7 +35,7 @@ namespace StorybrewScripts
             deskBlur.Rotate(OsbEasing.OutCirc, 22169, 22624, MathHelper.DegreesToRadians(40), 0);
 
             // Meguru Expressions
-            Vector2 face = Helpers.faceLocationHandler(602.5f, 443.5f);
+            Vector2 face = Helpers.faceLocationHandler(601f, 452f);
             Helpers.moveScaleAndFade("sb/scenes/deskLayer1.jpg", 30124, 36487, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/deskLayer2.jpg", 36260, 40124, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/deskLayer3.jpg", 39896, 43533, face.X, face.Y, layer);

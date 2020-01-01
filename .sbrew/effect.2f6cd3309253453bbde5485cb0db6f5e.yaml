@@ -4,7 +4,10 @@ Script: "SceneHeart"
 Config:
   movement:
     Type: "System.Single"
-    Value: "4"
+    Value: "2"
+  rotation:
+    Type: "System.Int32"
+    Value: "1"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

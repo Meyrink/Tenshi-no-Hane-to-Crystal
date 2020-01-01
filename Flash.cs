@@ -14,6 +14,11 @@ namespace StorybrewScripts
 {
     public class Flash : StoryboardObjectGenerator
     {
+        [Configurable]
+        public float startOpacity = 0.30f;
+                [Configurable]
+        public float beatDivisor = 1.0f;
+
         public override void Generate()
         {
 		    var layer = GetLayer("Flash");
@@ -22,20 +27,29 @@ namespace StorybrewScripts
             flash.ScaleVec(0, 854.0 / bitmap.Width, 480.0 / bitmap.Height);
             flash.Fade(0, 0);
 
-            double startTime = 22169;
-            flash.Fade(startTime, startTime + Constants.beatLength/4, 0.7, 0); // Verse 1
+            // Intro
+            flashIt(805, flash, beatDivisor, startOpacity); //BG1
+            flashIt(1715, flash, beatDivisor, startOpacity); //BG2
+            flashIt(2624, flash, beatDivisor, startOpacity); //BG3
+            flashIt(3533, flash, beatDivisor, startOpacity); //BG4
+            flashIt(4442, flash, beatDivisor / 4, startOpacity); //BG5
 
-            startTime = 58533;
-            flash.Fade(startTime, startTime + Constants.beatLength/2, 0.7, 0); // Verse 2
+            flashIt(7851, flash, beatDivisor, startOpacity); // Inst 1
+            flashIt(22169, flash, beatDivisor, startOpacity); // Verse 1
+            flashIt(58533, flash, beatDivisor, startOpacity); // Verse 2
+            flashIt(98760, flash, beatDivisor, startOpacity); // Kiai 1 
+            flashIt(142624, flash, beatDivisor, startOpacity); // Verse 3
+            flashIt(182396, flash, beatDivisor, startOpacity); // Kiai 2   
+            flashIt(127851, flash, beatDivisor, startOpacity); // Inst 2
+            flashIt(211487, flash, beatDivisor, startOpacity); // Solo
+            flashIt(266033, flash, beatDivisor, startOpacity); // Inst 3
+        }
 
-            startTime = 98760;
-            flash.Fade(startTime, startTime + Constants.beatLength/2, 0.7, 0); // Kiai 1 
-
-            startTime = 142624;
-            flash.Fade(startTime, startTime + Constants.beatLength/2, 0.7, 0); // Verse 3
-
-            startTime = 182396;
-            flash.Fade(startTime, startTime + Constants.beatLength/2, 0.7, 0); // Kiai 2       
+        private static OsbSprite flashIt (int startTime, OsbSprite sprite, double beatDivisor, float startOpacity) {
+            var endTime = startTime + Constants.beatLength / beatDivisor;
+            sprite.Fade(startTime, endTime, startOpacity, 0);
+            sprite.Additive(startTime, endTime);
+            return sprite;
         }
     }
 }

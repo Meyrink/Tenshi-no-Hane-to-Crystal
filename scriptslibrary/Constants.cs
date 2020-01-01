@@ -13,7 +13,7 @@ namespace StorybrewScripts
 
         public static double screenScale = 480.0 / 720;
         public static int glowRadius = 5;
-        public static string jpFont = "Togalite";
+        public static string jpFont = "Source Han Sans JP";
         public static string enFont = "";
         public static int fontSize = 30;
         public static float fontScale = 0.5f;

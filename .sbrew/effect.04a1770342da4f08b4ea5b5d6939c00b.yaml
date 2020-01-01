@@ -2,6 +2,12 @@
 Name: "Flash"
 Script: "Flash"
 Config:
+  startOpacity:
+    Type: "System.Single"
+    Value: "0.3"
+  beatDivisor:
+    Type: "System.Single"
+    Value: "1"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

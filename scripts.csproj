@@ -53,6 +53,7 @@
   -->
   <ItemGroup>
     <Compile Include="Flash.cs" />
+    <Compile Include="Intro.cs" />
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
     <Compile Include="SceneCinema.cs" />
