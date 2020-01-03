@@ -66,7 +66,7 @@ namespace StorybrewScripts
             heart.Fade(240578, 242396, heart.OpacityAt(240578), 1);
 
             // Meguru Expressions
-            Vector2 face = Helpers.faceLocationHandler(610.5f, 347.5f);
+            Vector2 face = Helpers.LocationHandler(610.5f, 347.5f);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer1.jpg", 245351, 249215, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer2.jpg", 248987, 256942, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer3.jpg", 256715, 261942, face.X, face.Y, layer);

@@ -4,19 +4,14 @@ Script: "MainBGYeet"
 Config:
   WhiteBGOpacity:
     Type: "System.Single"
-    Value: "0.9"
+    Value: "1"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  a8e1345424664edaa8fa7f9ccd749831:
-    Name: "Main BG Removal"
-    OsbLayer: Background
-    DiffSpecific: No
-    Visible: Yes
-  d6aeb4630ae94a388f3e22656ddf4cf5:
-    Name: "White Background"
+  73568c14bae04478917f574a2d7ec515:
+    Name: "White BG"
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes

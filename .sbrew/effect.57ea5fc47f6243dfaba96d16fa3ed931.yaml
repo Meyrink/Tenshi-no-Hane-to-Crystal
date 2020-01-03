@@ -4,16 +4,16 @@ Script: "Lyrics"
 Config:
   SubtitlesPath:
     Type: "System.String"
-    Value: "lyrics/main.ass"
+    Value: "ass/main.ass"
   FontName:
     Type: "System.String"
-    Value: "Togalite"
+    Value: ""
   SpritesPath:
     Type: "System.String"
-    Value: "sb/jpfont"
+    Value: "sb/lyrics"
   FontSize:
     Type: "System.Int32"
-    Value: "28"
+    Value: "30"
   FontScale:
     Type: "System.Single"
     Value: "0.5"
@@ -22,7 +22,7 @@ Config:
     Value: "1,1,1,1"
   FontStyle:
     Type: "System.Int32"
-    Value: "0"
+    Value: "1"
     AllowedValues:
       Regular: "0"
       Bold: "1"
@@ -43,10 +43,10 @@ Config:
     Value: "1"
   OutlineColor:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.827451,0.4436017,0.4124788,1"
+    Value: "0.827451,0.4969424,0.4124788,1"
   ShadowThickness:
     Type: "System.Int32"
-    Value: "4"
+    Value: "3"
   ShadowColor:
     Type: "OpenTK.Graphics.Color4"
     Value: "0.9921569,0.682353,0.5647059,0.3921569"
@@ -56,12 +56,9 @@ Config:
   SubtitleY:
     Type: "System.Single"
     Value: "400"
-  PerCharacter:
-    Type: "System.Boolean"
-    Value: "True"
   TrimTransparency:
     Type: "System.Boolean"
-    Value: "True"
+    Value: "False"
   EffectsOnly:
     Type: "System.Boolean"
     Value: "False"
@@ -70,7 +67,7 @@ Config:
     Value: "False"
   Origin:
     Type: "System.Int32"
-    Value: "7"
+    Value: "4"
     AllowedValues:
       TopLeft: "0"
       TopCentre: "1"

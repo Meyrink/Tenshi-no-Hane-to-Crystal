@@ -32,7 +32,7 @@ namespace StorybrewScripts
             cinemaHold.Fade(98760, 0); //To fade for "in my heart"
 
             // Meguru Expressions
-            Vector2 face = Helpers.faceLocationHandler(974f, 200f);
+            Vector2 face = Helpers.LocationHandler(974f, 200f);
             Helpers.moveScaleAndFade("sb/scenes/cinemaLayer1.jpg", 66487, 73078, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/cinemaLayer2.jpg", 80124, 87396, face.X, face.Y, layer);
             OsbSprite cinemaFinal = Helpers.moveScaleAndFadeIn("sb/scenes/cinemaLayer3.jpg", 87169, 87169, face.X, face.Y, layer);
