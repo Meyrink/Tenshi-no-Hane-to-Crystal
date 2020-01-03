@@ -18,25 +18,27 @@ namespace StorybrewScripts
         public Vector2 ZoomChange = new Vector2(530f, 80f);
 
         [Configurable]
-        public float transientOpacity = 1f;
+        public float transientOpacity = 0.7f;
 
         [Configurable]
-        public float sdbgScale = 1f;
+        public float sdbgScale = 0.9f;
 
         [Configurable]
-        public float sdScale = 1f;
+        public float sdScale = 0.57f;
         public override void Generate()
         {
 		    var layer = GetLayer("ClubRoom");
             
-            // Original Background
+            // Original BG
             var bg = layer.CreateSprite("sb/bg/clubRoom.jpg", OsbOrigin.Centre);
             bg.Scale(7851, Constants.screenScale);
+            Helpers.bounceEffect(7851, bg);
+
             bg.Fade(7851, 1);
             bg.Fade(8533, 0);
-            Helpers.bounceEffect(7851, bg);
-            ZoomEffect(bg, 21487);
+
             bg.Fade(20578, 1);
+            ZoomEffect(bg, 21487);
             bg.Fade(22169, 0);
 
             // Radial Blur bg for zoom effect
@@ -45,11 +47,11 @@ namespace StorybrewScripts
             bgR.Fade(OsbEasing.OutCirc, 21487, 22169, 0, 1);
             ZoomEffect(bgR, 21487);
 
-            // Normal blur bg for focus effect on chibi scenes
+            // Blur BG
             var bgB = layer.CreateSprite("sb/bg/clubRoomB.jpg", OsbOrigin.Centre);
             bgB.Scale(8305, Constants.screenScale);
             bgB.Fade(8305, 8533, 0, 1);
-            bgB.Fade(20578, 21487, bgB.OpacityAt(20578), 0);
+            bgB.Fade(21260, 21487, bgB.OpacityAt(20578), 0);
 
             // Orange Background for chibi scenes
             var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
@@ -69,14 +71,14 @@ namespace StorybrewScripts
             var transient = layer.CreateSprite("sb/transient.png", OsbOrigin.BottomCentre, new Vector2(320, 480));
             transient.Scale(8305, Constants.screenScale);
             transient.Fade(8305, 8533, 0, transientOpacity);
-            transient.Fade(20578, 21487, transient.OpacityAt(20578), 0);
+            transient.Fade(21260, 21487, transient.OpacityAt(21260), 0);
 
             // Top transient
             var transient2 = layer.CreateSprite("sb/transient.png", OsbOrigin.TopCentre, new Vector2(320, 0));
             transient2.FlipV(8305, 21487);
             transient2.Scale(8305, Constants.screenScale);
             transient2.Fade(8305, 8533, 0, transientOpacity);
-            transient2.Fade(20578, 21487, transient2.OpacityAt(20578), 0);
+            transient2.Fade(21260, 21487, transient2.OpacityAt(21260), 0);
         }
 
         private OsbSprite FadeInOut(StoryboardLayer layer, string path, double startTime, float scale)
@@ -90,9 +92,10 @@ namespace StorybrewScripts
         {
             var sprite = layer.CreateSprite(path, OsbOrigin.Centre);
             sprite.Scale(startTime - Constants.beatLength * 0.5f, scale);
-            sprite.Fade(startTime - Constants.beatLength * 0.25f, startTime, 0, 1);
+            sprite.Fade(startTime - Constants.beatLength * 0.5f, startTime, 0, 1);
             return sprite;
         }
+
         private void ZoomEffect(OsbSprite sprite, double startTime)
         {
             var center = new Vector2(320f, 240f);
@@ -102,6 +105,7 @@ namespace StorybrewScripts
             sprite.Scale(startTime, endTime, sprite.ScaleAt(startTime).X, 2.2);
             sprite.Rotate(OsbEasing.InCirc, startTime, endTime, 0, MathHelper.DegreesToRadians(-40));
         }
+        
         private void FoldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
         {
             sprite.ScaleVec(startTime, startTime + Constants.beatLength * 0.5f, scale, 0, scale, scale);

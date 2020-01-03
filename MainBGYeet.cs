@@ -26,7 +26,6 @@ namespace StorybrewScripts
             var bitmap = GetMapsetBitmap("sb/pixel.png");
 
             whiteBg.ScaleVec(0, 854.0 / bitmap.Width, 480.0 / bitmap.Height);
-
             whiteBg.Fade(0, WhiteBGOpacity);
             whiteBg.Fade(805, 0);
 

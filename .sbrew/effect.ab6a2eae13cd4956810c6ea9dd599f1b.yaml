@@ -1,0 +1,23 @@
+﻿FormatVersion: 6
+Name: "RoomMeguru 1"
+Script: "RoomMeguru"
+Config:
+  transientOpacity:
+    Type: "System.Single"
+    Value: "0.7"
+  sdbgScale:
+    Type: "System.Single"
+    Value: "0.9"
+  sdScale:
+    Type: "System.Single"
+    Value: "0.57"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  a13edf3641e14cb8bdc982dc94dd4275:
+    Name: "MeguRoom"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes
