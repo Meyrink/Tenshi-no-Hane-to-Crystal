@@ -44,25 +44,24 @@ namespace StorybrewScripts
 
             double inc = barWidth / Math.Cos(rotation);
             double numBars = Math.Ceiling((Constants.xCeil - startingX) / inc);
-            double buffer = 20;
+            double buffer = transitionSpeed / numBars;
 
             for (int i = 0; i < (int)numBars + 0.00005; i++) {
                 OsbSprite bar = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomLeft, new Vector2((float)(startingX + i*inc), (float)480.0));
                 
                 double relativeIn = transitionTime - transitionSpeed - buffer * (numBars - i);
-                bar.Fade(relativeIn, 1);
+                double fadeInMidTime = relativeIn + transitionSpeed/2;
                 bar.Rotate(relativeIn, rotation);
                 bar.Color(relativeIn, Color4.Black);
-
-                double fadeInMidTime = relativeIn + transitionSpeed/2;
                 bar.ScaleVec(OsbEasing.Out, relativeIn, fadeInMidTime, barWidth, 0, barWidth, barHeight/2);
                 bar.ScaleVec(OsbEasing.In, fadeInMidTime, relativeIn + transitionSpeed, barWidth, barHeight/2, barWidth, barHeight);
 
-
                 double relativeOut = transitionTime + buffer * i;
-                bar.ScaleVec(OsbEasing.OutCirc, relativeOut, relativeOut + transitionSpeed/2, bar.ScaleAt(relativeOut), barWidth, 0);
-                bar.Move(OsbEasing.OutCirc, relativeOut, relativeOut + transitionSpeed/2, bar.PositionAt(relativeOut), bar.PositionAt(relativeOut).X + (Constants.height + barOffset) * Math.Tan(rotation), -barOffset);
-                bar.Fade(relativeOut + transitionSpeed/2, 0);
+                double fadeOutMidTime = relativeOut + transitionSpeed/2;
+                bar.ScaleVec(OsbEasing.In, relativeOut, fadeOutMidTime, bar.ScaleAt(relativeOut), barWidth, barHeight/2);
+                bar.ScaleVec(OsbEasing.Out, fadeOutMidTime, relativeOut + transitionSpeed, bar.ScaleAt(relativeOut), barWidth, 0);
+                bar.Move(OsbEasing.In, relativeOut, fadeOutMidTime, bar.PositionAt(relativeOut), bar.PositionAt(relativeOut).X + (Constants.height/2) * Math.Tan(rotation), Constants.height/2);
+                bar.Move(OsbEasing.Out, fadeOutMidTime, relativeOut + transitionSpeed, bar.PositionAt(fadeOutMidTime), bar.PositionAt(relativeOut).X + (Constants.height + barOffset) * Math.Tan(rotation), -barOffset);
             }
         }
     }
