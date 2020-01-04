@@ -27,14 +27,13 @@ namespace StorybrewScripts
         {
 		    StoryboardLayer layer = GetLayer("Transtion");
             
-            double epsilon = 20;
-            if (rotation % 360 >= 180 - epsilon && rotation % 360 <= 180 + epsilon) {
+            if (rotation % 90 < 80) {
                 // no solution, set default value
                 rotation = 30;
             }
 
             rotation = rotation * Math.PI / 180.0; // radians
-            double barOffset = barWidth * Math.Cos(rotation);
+            double barOffset = barWidth * Math.Tan(rotation);
             double barHeight = Constants.height / Math.Cos(rotation) + barOffset;
 
             // y = m*(x + 107) + 0
