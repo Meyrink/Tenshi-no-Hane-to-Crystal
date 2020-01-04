@@ -39,7 +39,7 @@ namespace StorybrewScripts
             double barDuration = (endTime - startTime) / barAmount;
             double relativeStart = startTime;
 
-            for (int i = 0; i <= barAmount; i++)
+            for (int i = 1; i <= barAmount; i++)
             {
                 Vector2 Pos = FindPosIn(i);
                 var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomRight, Pos);
@@ -57,7 +57,7 @@ namespace StorybrewScripts
             double barDuration = (endTime - startTime) / barAmount;
             double relativeStart = startTime;
 
-            for (int i = 0; i <= barAmount; i++)
+            for (int i = 1; i <= barAmount; i++)
             {
                 Vector2 Pos = FindPosOut(i);
                 var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.TopLeft, Pos);
