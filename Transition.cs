@@ -42,7 +42,7 @@ namespace StorybrewScripts
             for (int i = 0; i <= barAmount; i++)
             {
                 Vector2 Pos = FindPosIn(i);
-                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomLeft, Pos);
+                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomRight, Pos);
                 sprite.Color(startTime, color); 
                 sprite.Fade(startTime, 1);
                 sprite.Fade(endTime, 1);
