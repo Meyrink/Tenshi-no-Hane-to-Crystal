@@ -44,8 +44,8 @@ namespace StorybrewScripts
                 Vector2 Pos = FindPosIn(i);
                 var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomRight, Pos);
                 sprite.Color(startTime, color); 
-                sprite.Fade(startTime, 1);
-                sprite.Fade(endTime, 1);
+                sprite.Fade(relativeStart, 1);
+                sprite.Fade(endTime, 0);
                 sprite.ScaleVec(easing, relativeStart, relativeStart + barDuration, width * foldRatio, 0, width, height);
                 relativeStart += barDuration;
             }
@@ -62,8 +62,8 @@ namespace StorybrewScripts
                 Vector2 Pos = FindPosOut(i);
                 var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.TopLeft, Pos);
                 sprite.Color(startTime, color); 
-                sprite.Fade(startTime, 1);
-                sprite.Fade(endTime, 1);
+                sprite.Fade(relativeStart, 1);
+                sprite.Fade(endTime, 0);
                 sprite.ScaleVec(easing, relativeStart, relativeStart + barDuration, width, height, width * foldRatio, 0);
                 relativeStart += barDuration;
             }
