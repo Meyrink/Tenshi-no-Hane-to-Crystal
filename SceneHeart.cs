@@ -50,9 +50,9 @@ namespace StorybrewScripts
             heart.Rotate(233305, 242396, MathHelper.DegreesToRadians(rotation), 0);
 
             // Reset heart position then moving the whole background down to Yfloor
-            heart.Move(OsbEasing.InBack, 240578, 242396, heart.PositionAt(240578).X, heart.PositionAt(240578).Y, center.X , center.Y * 1.175); // 1.175‬ = (846/720)
-            heart.Scale(OsbEasing.InBack, 240578, 242396, 1.4, Constants.screenScale);
-            heart.Fade(240578, 242396, heart.OpacityAt(240578), 1);
+            heart.Move(240578, 242396, heart.PositionAt(240578).X, heart.PositionAt(240578).Y, center.X , center.Y * 1.175); // 1.175‬ = (846/720)
+            heart.Scale(OsbEasing.InOutCubic, 240578, 242396, 1.4, Constants.screenScale);
+            heart.Fade(OsbEasing.InOutCubic, 240578, 242396, heart.OpacityAt(240578), 1);
 
             // Meguru Expressions
             Vector2 face = Helpers.LocationHandler(610.5f, 347.5f);
