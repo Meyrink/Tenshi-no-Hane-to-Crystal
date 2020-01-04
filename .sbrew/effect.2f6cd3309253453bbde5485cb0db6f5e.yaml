@@ -8,6 +8,9 @@ Config:
   rotation:
     Type: "System.Int32"
     Value: "1"
+  heartLocation:
+    Type: "OpenTK.Vector2"
+    Value: "345,515"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
