@@ -23,15 +23,15 @@ namespace StorybrewScripts
 
             desk.Fade(22169, 1);
             desk.Scale(OsbEasing.OutCirc, 22169, 22624, 1.65, Constants.screenScale);
-            desk.Rotate(OsbEasing.OutCirc, 22169, 22624, MathHelper.DegreesToRadians(40), 0);
-            desk.Fade(58533, 1);
+            desk.Rotate(OsbEasing.OutCirc, 22169, 22624, Math.PI/4, 0);
+            desk.Fade(58078, 1);
 
             Helpers.bounceEffect(22624, desk);
 
             deskR.Fade(22169, 0.7);
             deskR.Fade(22169, 22851, desk.OpacityAt(22283), 0);
             deskR.Scale(OsbEasing.OutCirc, 22169, 22624, 1.65, Constants.screenScale);
-            deskR.Rotate(OsbEasing.OutCirc, 22169, 22624, MathHelper.DegreesToRadians(40), 0);
+            deskR.Rotate(OsbEasing.OutCirc, 22169, 22624, Math.PI/4, 0);
 
             // Meguru Expressions
             Vector2 face = Helpers.LocationHandler(601f, 452f);
@@ -41,7 +41,7 @@ namespace StorybrewScripts
             Helpers.moveScaleAndFade("sb/scenes/deskLayer2.jpg", 43305, 47396, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/deskLayer4.jpg", 47169, 51033, face.X, face.Y, layer);
             OsbSprite deskFinal = Helpers.moveScaleAndFadeIn("sb/scenes/deskLayer5.jpg", 50805, 58533, face.X, face.Y, layer);
-            deskFinal.Fade(58533, 0);
+            deskFinal.Fade(58078, 0);
             
             /* 
             // Attempt to scal both bg and face while keeping it a one picture, needs camera matrix

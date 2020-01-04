@@ -30,22 +30,23 @@ namespace StorybrewScripts
             var bg = layer.CreateSprite("sb/bg/meguRoom.jpg", OsbOrigin.Centre);
             bg.Scale(127851, Constants.screenScale);
             Helpers.bounceEffect(127851, bg);
-
-            bg.Fade(127851, 1);
+            bg.Fade(127851, 1); // Blur in
             bg.Fade(128533, 0);
-
-            bg.Fade(141260, 1);
+            bg.Fade(141260, 1); // Blur out
             bg.Fade(142624, 0);
 
-            // blur BG
+            double startTime = 128305;
+            double endTime = 141260;
+
+            // Blur BG
             var bgB = layer.CreateSprite("sb/bg/meguRoomB.jpg", OsbOrigin.Centre);
-            bgB.Scale(128305, Constants.screenScale);
-            bgB.Fade(128305, 128305 + Constants.beatLength * 0.5f, 0, 1);
-            bgB.Fade(141260, 141487, bgB.OpacityAt(140578), 0);
+            bgB.Scale(startTime, Constants.screenScale);
+            bgB.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
+            bgB.Fade(endTime, endTime + Constants.beatLength * 0.5f, bgB.OpacityAt(endTime), 0);
 
             // Orange Background for chibi scenes
             var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
-            FoldInOut(sdbg, 128305, 141260, sdbgScale);
+            FoldInOut(sdbg, startTime, endTime, sdbgScale);
 
             // Chibi Scenes
             FadeInOut(layer, "sb/sd/RoomSD1.jpg", 128987, sdScale);
@@ -57,18 +58,18 @@ namespace StorybrewScripts
             var finalSD = FadeIn(layer, "sb/sd/RoomSD7.jpg", 139896, sdScale);
             finalSD.Fade(141033, 141260, 1, 0);
 
-            // Bot transient
+            // Bot Gradient
             var transient = layer.CreateSprite("sb/transient.png", OsbOrigin.BottomCentre, new Vector2(320, 480));
-            transient.Scale(128305, Constants.screenScale);
-            transient.Fade(128305, 128305 + Constants.beatLength * 0.5f, 0, transientOpacity);
-            transient.Fade(141260, 141487, transient.OpacityAt(140578), 0);
+            transient.Scale(startTime, Constants.screenScale);
+            transient.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
+            transient.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient.OpacityAt(endTime), 0);
 
-            // Top transient
+            // Top Gradient
             var transient2 = layer.CreateSprite("sb/transient.png", OsbOrigin.TopCentre, new Vector2(320, 0));
-            transient2.FlipV(128305, 141487);
-            transient2.Scale(128305, Constants.screenScale);
-            transient2.Fade(128305, 128305 + Constants.beatLength * 0.5f, 0, transientOpacity);
-            transient2.Fade(141260, 141487, transient2.OpacityAt(140578), 0);
+            transient2.FlipV(startTime, endTime + Constants.beatLength * 0.5f);
+            transient2.Scale(startTime, Constants.screenScale);
+            transient2.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
+            transient2.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient2.OpacityAt(endTime), 0);
         }
 
         private OsbSprite FadeInOut(StoryboardLayer layer, string path, double startTime, float scale)

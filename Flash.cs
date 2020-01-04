@@ -23,8 +23,7 @@ namespace StorybrewScripts
         {
 		    var layer = GetLayer("Flash");
             var flash = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
-            var bitmap = GetMapsetBitmap("sb/pixel.png");
-            flash.ScaleVec(0, 854.0 / bitmap.Width, 480.0 / bitmap.Height);
+            flash.ScaleVec(0, 854, 480);
             flash.Fade(0, 0);
 
             // Intro
@@ -37,7 +36,7 @@ namespace StorybrewScripts
 
             flashIt(7851, flash, beatDivisor, startOpacity); // Inst 1
             flashIt(22169, flash, beatDivisor, startOpacity); // Verse 1
-            flashIt(58533, flash, beatDivisor, startOpacity); // Verse 2
+            // flashIt(58987, flash, beatDivisor, startOpacity); // Verse 2
             flashIt(98760, flash, beatDivisor, startOpacity); // Kiai 1 
             flashIt(142624, flash, beatDivisor, startOpacity); // Verse 3
             flashIt(182396, flash, beatDivisor, startOpacity); // Kiai 2   

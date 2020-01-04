@@ -21,8 +21,8 @@ namespace StorybrewScripts
             var cinema = layer.CreateSprite("sb/scenes/cinema.jpg", OsbOrigin.Centre);
             var cinemaHold = layer.CreateSprite("sb/scenes/cinemaHold.jpg", OsbOrigin.Centre);
 
-            cinema.Scale(OsbEasing.OutCirc, 58533, 58987, 1.5, Constants.screenScale);
-            cinema.Fade(58533, 1);
+            cinema.Scale(OsbEasing.OutCirc, 58078, 58987, 1, Constants.screenScale);
+            cinema.Fade(58078, 1);
             cinema.Fade(73078, 0);
 
             Helpers.bounceEffect(58987, cinema);

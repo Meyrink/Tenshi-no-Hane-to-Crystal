@@ -66,6 +66,7 @@
     <Compile Include="SceneHug.cs" />
     <Compile Include="SceneThighs.cs" />
     <Compile Include="Shadow.cs" />
+    <Compile Include="Transition.cs" />
     <Compile Include="scriptslibrary/Constants.cs" />
   </ItemGroup>
   <ItemGroup />

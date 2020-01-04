@@ -23,9 +23,7 @@ namespace StorybrewScripts
             yeetBg.Fade(0, 0);
 
             var whiteBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
-            var bitmap = GetMapsetBitmap("sb/pixel.png");
-
-            whiteBg.ScaleVec(0, 854.0 / bitmap.Width, 480.0 / bitmap.Height);
+            whiteBg.ScaleVec(0, 854, 480);
             whiteBg.Fade(0, WhiteBGOpacity);
             whiteBg.Fade(805, 0);
 
