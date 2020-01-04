@@ -19,11 +19,10 @@ namespace StorybrewScripts
 		    var layer = GetLayer("Thighs");
 
             var thighs = layer.CreateSprite("sb/scenes/thighs.jpg", OsbOrigin.Centre);
-            thighs.Scale(142624, Constants.screenScale);
+            thighs.Scale(142624, 143078, 1, Constants.screenScale);
+            thighs.Rotate(OsbEasing.OutBack, 142624, 143078, MathHelper.DegreesToRadians(-15), 0);
             thighs.Fade(142624, 1);
             thighs.Fade(182396, 0); // To fade for transition
-
-            Helpers.bounceEffect(142624, thighs);
 
             // Meguru Expressions
             Vector2 face = Helpers.LocationHandler(299f, 199f);

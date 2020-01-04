@@ -33,12 +33,20 @@ namespace StorybrewScripts
             bg.Fade(127851, 1); // Blur in
             bg.Fade(128533, 0);
             bg.Fade(141260, 1); // Blur out
+            ZoomFlipEffect(bg, 141942);
             bg.Fade(142624, 0);
 
+            // Radial Blur bg for zoom effect
+            var bgR = layer.CreateSprite("sb/bg/meguRoomR.jpg", OsbOrigin.Centre);
+            bgR.Scale(141942, Constants.screenScale);
+            bgR.Fade(141942, 142624,0, 1);
+            ZoomFlipEffect(bgR, 141942);
+
+
+            // SD Scenes 
             double startTime = 128305;
             double endTime = 141260;
 
-            // Blur BG
             var bgB = layer.CreateSprite("sb/bg/meguRoomB.jpg", OsbOrigin.Centre);
             bgB.Scale(startTime, Constants.screenScale);
             bgB.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
@@ -93,6 +101,13 @@ namespace StorybrewScripts
             sprite.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
             sprite.ScaleVec(endTime, endTime + Constants.beatLength * 0.5f, scale, scale, scale , 0);
             sprite.Fade(endTime, endTime + Constants.beatLength * 0.5f, sprite.OpacityAt(endTime), 0);
+        }
+
+        private void ZoomFlipEffect(OsbSprite sprite, double startTime)
+        {
+            var endTime = startTime + Constants.beatLength * 1.5;
+            sprite.Scale(startTime, endTime, sprite.ScaleAt(startTime).X, 1.6);
+            sprite.Rotate(OsbEasing.InBack, startTime, endTime, 0, Math.PI);
         }
     }
 }

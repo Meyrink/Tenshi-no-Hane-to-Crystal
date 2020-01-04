@@ -45,10 +45,10 @@ namespace StorybrewScripts
             bgR.Fade(OsbEasing.OutCirc, 21487, 22169, 0, 1);
             ZoomEffect(bgR, 21487);
 
+            // SD Scenes
             double startTime = 8305;
             double endTime = 21260;
 
-            // Blur BG
             var bgB = layer.CreateSprite("sb/bg/clubRoomB.jpg", OsbOrigin.Centre);
             bgB.Scale(startTime, Constants.screenScale);
             bgB.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
