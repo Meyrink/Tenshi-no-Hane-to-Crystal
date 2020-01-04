@@ -58,6 +58,7 @@
     <Compile Include="Logo.cs" />
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
+    <Compile Include="RinkTransition.cs" />
     <Compile Include="RoomClub.cs" />
     <Compile Include="RoomMeguru.cs" />
     <Compile Include="SceneCinema.cs" />

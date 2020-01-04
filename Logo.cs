@@ -15,24 +15,33 @@ namespace StorybrewScripts
     public class Logo : StoryboardObjectGenerator
     {
         [Configurable]
+        public int numSprites = 30;
+        [Configurable]
+        public double startTime = 6260;
+        [Configurable]
+        public double endTime = 7851;
+        [Configurable]
         public double logoScale = 0.7; //0.7 looks nice
         [Configurable]
         public double bounceSpeed = 2;
         [Configurable]
-        public OsbEasing easing = OsbEasing.InSine; // Insine is apprently the best
+        public OsbEasing bounceEasing = OsbEasing.InSine; // InSine seems the best
+        [Configurable]
+        public Color4 particleColor = Color4.Yellow;
+        [Configurable]
+        public Vector2 Center = new Vector2(320, 240);
         public override void Generate()
         {
 		    var layer = GetLayer("Logo");
-            double startTime = 6260;
-            double endTime = 7851;
-
+            
             // Background
             var logobg = layer.CreateSprite("sb/logoBg.png", OsbOrigin.Centre);
             ScaleAndRotate(logobg, startTime, endTime, 0, 45);
             var logolayer = layer.CreateSprite("sb/logoLayer.png", OsbOrigin.Centre);
             ScaleAndRotate(logolayer, startTime, endTime, 0, -45);        
 
-            // In between
+            // In between (particles)
+            GenerateEffect(layer, startTime, endTime, "sb/star.png");
 
             // Foreground
             var logo = layer.CreateSprite("sb/logo.png", OsbOrigin.Centre);
@@ -42,22 +51,30 @@ namespace StorybrewScripts
             logo.ScaleVec(endTime - Constants.beatLength * 1.5f, endTime, logoScale, logoScale, 0.73, 0.73);
         }
 
+        private void GenerateEffect(StoryboardLayer layer, double startTime, double endTime, string path)
+        {
+            for (int i = 0; i < numSprites; i++)
+            {
+                var sprite = layer.CreateSprite(path, OsbOrigin.Centre);
+            }
+        }
+
         private void Bounce(OsbSprite sprite, double startTime) 
         {
             var endTime = startTime + Constants.beatLength / bounceSpeed;
-            sprite.ScaleVec(easing, startTime, endTime, logoScale, logoScale, logoScale * 1.1, logoScale * 0.8);
+            sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale, logoScale, logoScale * 1.1, logoScale * 0.8);
             
             startTime = endTime;
             endTime = startTime + Constants.beatLength / bounceSpeed;
-            sprite.ScaleVec(easing, startTime, endTime, logoScale * 1.1, logoScale * 0.8, logoScale / 1.1, logoScale / 0.8);
+            sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale * 1.1, logoScale * 0.8, logoScale / 1.1, logoScale / 0.8);
             
             startTime = endTime;
             endTime = startTime + Constants.beatLength / bounceSpeed;
-            sprite.ScaleVec(easing, startTime, endTime, logoScale / 1.1, logoScale / 0.8, logoScale * 1.1, logoScale * 0.8);
+            sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale / 1.1, logoScale / 0.8, logoScale * 1.1, logoScale * 0.8);
 
             startTime = endTime;
             endTime = startTime + Constants.beatLength / bounceSpeed;
-            sprite.ScaleVec(easing, startTime, endTime, logoScale * 1.1, logoScale * 0.8, logoScale, logoScale);
+            sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale * 1.1, logoScale * 0.8, logoScale, logoScale);
         }
 
         private void ScaleAndRotate(OsbSprite sprite, double startTime, double endTime, int startAngle, int endAngle)
