@@ -42,18 +42,6 @@ namespace StorybrewScripts
             Helpers.moveScaleAndFade("sb/scenes/deskLayer4.jpg", 47169, 51033, face.X, face.Y, layer);
             OsbSprite deskFinal = Helpers.moveScaleAndFadeIn("sb/scenes/deskLayer5.jpg", 50805, 58533, face.X, face.Y, layer);
             deskFinal.Fade(58078, 0);
-            
-            /* 
-            // Attempt to scal both bg and face while keeping it a one picture, needs camera matrix
-            Log(x + " " + y);
-            Vector2 V1 = new Vector2(320f, 240f);
-            Vector2 V2 = new Vector2(294.98058f, 295.6667f);
-            Vector2 Distance = Vector2.Subtract(V2, V1);
-            Vector2 Scale = Vector2.Multiply(Distance, 1.5f);
-            desk.Scale(OsbEasing.InCirc, 57396, 58533, Constants.screenScale, 1.5f);
-            deskFinal.Scale(OsbEasing.InCirc, 57396, 58533, Constants.screenScale, 1.5f); 
-            deskFinal.Move(OsbEasing.InCirc, 57396, 58533, deskFinal.PositionAt(57396), x + Scale.X, y + Scale.Y);
-            */
         }
     }
 }

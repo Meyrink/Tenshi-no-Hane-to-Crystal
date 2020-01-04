@@ -3,7 +3,8 @@ using OpenTK;
 
 namespace StorybrewScripts
 {
-    public class Constants {
+    public class Constants 
+    {
         public static double beatLength = 454;
         public static float xFloor = -107;
         public static float xCeil = 747;
@@ -19,7 +20,8 @@ namespace StorybrewScripts
         public static float fontScale = 0.5f;
     }
 
-    public class Helpers {
+    public class Helpers 
+    {
         public static OsbSprite moveScaleAndFade(string path, double startTime, double endTime, double x, double y, StoryboardLayer layer) 
         {
             OsbSprite sprite = moveScaleAndFadeIn(path, startTime, endTime, x, y, layer);

@@ -20,7 +20,6 @@ namespace StorybrewScripts
             var shadow = layer.CreateSprite("sb/shadow.png", OsbOrigin.Centre);            
             shadow.Fade(0, 1);
             shadow.Fade(293668, 0);
-            
         }
     }
 }
