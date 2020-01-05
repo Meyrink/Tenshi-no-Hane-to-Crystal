@@ -1,22 +1,13 @@
 ﻿FormatVersion: 6
-Name: "Main Lyrics"
+Name: "Lyrics"
 Script: "Lyrics"
 Config:
-  SubtitlesPath:
-    Type: "System.String"
-    Value: "ass/main.ass"
   FontName:
     Type: "System.String"
-    Value: ""
-  SpritesPath:
-    Type: "System.String"
-    Value: "sb/lyrics"
+    Value: "Source Han Sans JP"
   FontSize:
     Type: "System.Int32"
     Value: "30"
-  FontScale:
-    Type: "System.Single"
-    Value: "0.5"
   FontColor:
     Type: "OpenTK.Graphics.Color4"
     Value: "1,1,1,1"
@@ -56,13 +47,7 @@ Config:
   SubtitleY:
     Type: "System.Single"
     Value: "400"
-  TrimTransparency:
-    Type: "System.Boolean"
-    Value: "False"
   EffectsOnly:
-    Type: "System.Boolean"
-    Value: "False"
-  Debug:
     Type: "System.Boolean"
     Value: "False"
   Origin:

@@ -12,19 +12,10 @@ namespace StorybrewScripts
     public class Lyrics : StoryboardObjectGenerator
     {
         [Configurable]
-        public string SubtitlesPath = "lyrics.srt";
-
-        [Configurable]
         public string FontName = "Source Han Sans JP";
 
         [Configurable]
-        public string SpritesPath = "sb/font";
-
-        [Configurable]
         public int FontSize = 30;
-
-        [Configurable]
-        public float FontScale = 0.5f;
 
         [Configurable]
         public Color4 FontColor = Color4.White;
@@ -36,7 +27,7 @@ namespace StorybrewScripts
         public int GlowRadius = 0;
 
         [Configurable]
-        public Color4 GlowColor = new Color4(255, 255, 255, 100);
+        public Color4 GlowColor = Color4.White;
 
         [Configurable]
         public bool AdditiveGlow = true;
@@ -45,13 +36,13 @@ namespace StorybrewScripts
         public int OutlineThickness = 3;
 
         [Configurable]
-        public Color4 OutlineColor = new Color4(50, 50, 50, 200);
+        public Color4 OutlineColor = Color4.White;
 
         [Configurable]
         public int ShadowThickness = 0;
 
         [Configurable]
-        public Color4 ShadowColor = new Color4(0, 0, 0, 100);
+        public Color4 ShadowColor = Color4.White;
 
         [Configurable]
         public Vector2 Padding = Vector2.Zero;
@@ -60,29 +51,23 @@ namespace StorybrewScripts
         public float SubtitleY = 400;
 
         [Configurable]
-        public bool TrimTransparency = true;
-
-        [Configurable]
         public bool EffectsOnly = false;
-
-        [Configurable]
-        public bool Debug = false;
 
         [Configurable]
         public OsbOrigin Origin = OsbOrigin.Centre;
 
         public override void Generate()
         {
-            var font = LoadFont(SpritesPath, new FontDescription()
+            var font = LoadFont("sb/lyrics/jpFont", new FontDescription()
             {
                 FontPath = FontName,
                 FontSize = FontSize,
                 Color = FontColor,
                 Padding = Padding,
                 FontStyle = FontStyle,
-                TrimTransparency = TrimTransparency,
+                TrimTransparency = true,
                 EffectsOnly = EffectsOnly,
-                Debug = Debug,
+                Debug = false,
             },
             new FontGlow()
             {
@@ -100,20 +85,19 @@ namespace StorybrewScripts
                 Color = ShadowColor,
             });
 
-            var subtitles = LoadSubtitles(SubtitlesPath);
+            var subtitles = LoadSubtitles("ass/main.ass");
 
             if (GlowRadius > 0 && AdditiveGlow)
             {
-                var glowFont = LoadFont(Path.Combine(SpritesPath, "glow"), new FontDescription()
+                var glowFont = LoadFont(Path.Combine("sb/lyrics/glow"), new FontDescription()
                 {
                     FontPath = FontName,
                     FontSize = FontSize,
                     Color = FontColor,
                     Padding = Padding,
                     FontStyle = FontStyle,
-                    TrimTransparency = TrimTransparency,
+                    TrimTransparency = true,
                     EffectsOnly = true,
-                    Debug = Debug,
                 },
                 new FontGlow()
                 {
@@ -129,7 +113,6 @@ namespace StorybrewScripts
         {
             var layer = GetLayer(layerName);
             horizontalPlacement(font, subtitles, layer, additive);
-            // verticalPlacement(font, subtitles, layer, additive);
         }
 
         public void horizontalPlacement(FontGenerator font, SubtitleSet subtitles, StoryboardLayer layer, bool additive)
@@ -144,8 +127,8 @@ namespace StorybrewScripts
                     foreach (var letter in line)
                     {
                         var texture = font.GetTexture(letter.ToString());
-                        lineWidth += texture.BaseWidth * FontScale;
-                        lineHeight = Math.Max(lineHeight, texture.BaseHeight * FontScale);
+                        lineWidth += texture.BaseWidth * Constants.fontScale;
+                        lineHeight = Math.Max(lineHeight, texture.BaseHeight * Constants.fontScale);
                     }
 
                     var letterX = 320 - lineWidth * 0.5f;
@@ -155,7 +138,7 @@ namespace StorybrewScripts
                         if (!texture.IsEmpty)
                         {
                             var position = new Vector2(letterX, letterY)
-                                + texture.OffsetFor(Origin) * FontScale;
+                                + texture.OffsetFor(Origin) * Constants.fontScale;
 
                             var sprite = layer.CreateSprite(texture.Path, Origin);
 
@@ -163,18 +146,18 @@ namespace StorybrewScripts
                             float startPos = 8;
 
                             sprite.Move(subtitleLine.StartTime - 200, subtitleLine.StartTime, 
-                            position.X + Random(-startPos, startPos), position.Y + + Random(-startPos, startPos), 
+                            position.X + Random(-startPos, startPos), position.Y + Random(-startPos, startPos), 
                             position.X, position.Y);
                             
                             sprite.Rotate(subtitleLine.StartTime - 200, subtitleLine.StartTime , 
                             Random(MathHelper.DegreesToRadians(-angle), Random(MathHelper.DegreesToRadians(angle))), 0);
                             
-                            sprite.Scale(subtitleLine.StartTime, FontScale);
+                            sprite.Scale(subtitleLine.StartTime, Constants.fontScale);
                             sprite.Fade(subtitleLine.StartTime - 200, subtitleLine.StartTime, 0, 1);
                             sprite.Fade(subtitleLine.EndTime - 200, subtitleLine.EndTime, 1, 0);
                             if (additive) sprite.Additive(subtitleLine.StartTime - 200, subtitleLine.EndTime);
                         }
-                        letterX += texture.BaseWidth * FontScale;
+                        letterX += texture.BaseWidth * Constants.fontScale;
                     }
                     letterY += lineHeight;
                 }
@@ -190,8 +173,8 @@ namespace StorybrewScripts
                 float height = 0f;
                 foreach (char character in lyric) {
                     FontTexture texture = font.GetTexture(character.ToString());
-                    width += texture.BaseWidth * Constants.fontScale;
-                    height = Math.Max(height, texture.BaseHeight * Constants.fontScale);
+                    width += texture.BaseWidth * Constants.Constants.fontScale;
+                    height = Math.Max(height, texture.BaseHeight * Constants.Constants.fontScale);
                 }
                 
                 float y = 240 - width/2;
@@ -199,10 +182,10 @@ namespace StorybrewScripts
                 foreach (char character in lyric) {
                     FontTexture texture = font.GetTexture(character.ToString());
                     if (!texture.IsEmpty) {
-                        Vector2 pos = new Vector2(x, y) + texture.OffsetFor(OsbOrigin.Centre) * Constants.fontScale;
+                        Vector2 pos = new Vector2(x, y) + texture.OffsetFor(OsbOrigin.Centre) * Constants.Constants.fontScale;
                         OsbSprite sprite = layer.CreateSprite(texture.Path, OsbOrigin.Centre, pos);
                     
-                        sprite.Scale(relativeStart, Constants.fontScale);
+                        sprite.Scale(relativeStart, Constants.Constants.fontScale);
                         sprite.Fade(relativeStart, relativeStart + Constants.beatLength/2, 0, 1);
                         sprite.Fade(line.EndTime - Constants.beatLength, line.EndTime - Constants.beatLength/2, 1, 0);
                         if (additive) {
@@ -212,7 +195,7 @@ namespace StorybrewScripts
                             sprite.Color(relativeStart, Colours.black);
                         }
                     }
-                    y += texture.BaseWidth * Constants.fontScale;
+                    y += texture.BaseWidth * Constants.Constants.fontScale;
                     relativeStart += Constants.beatLength/8;
                 }
                 x += height;

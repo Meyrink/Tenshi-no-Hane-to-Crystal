@@ -2,9 +2,46 @@
 Name: "InMyHeart"
 Script: "InMyHeart"
 Config:
-  bg:
+  bgColor:
     Type: "OpenTK.Graphics.Color4"
     Value: "1,1,1,1"
+  fontName:
+    Type: "System.String"
+    Value: "Gabriola"
+  fontSize:
+    Type: "System.Int32"
+    Value: "150"
+  fontstyle:
+    Type: "System.Int32"
+    Value: "1"
+    AllowedValues:
+      Regular: "0"
+      Bold: "1"
+      Italic: "2"
+      Underline: "4"
+      Strikeout: "8"
+  fontColor:
+    Type: "OpenTK.Graphics.Color4"
+    Value: "0,0,0,1"
+  chrousScale:
+    Type: "System.Single"
+    Value: "0.5"
+  fineness:
+    Type: "System.Int32"
+    Value: "2"
+  origin:
+    Type: "System.Int32"
+    Value: "4"
+    AllowedValues:
+      TopLeft: "0"
+      TopCentre: "1"
+      TopRight: "2"
+      CentreLeft: "3"
+      Centre: "4"
+      CentreRight: "5"
+      BottomLeft: "6"
+      BottomCentre: "7"
+      BottomRight: "8"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
