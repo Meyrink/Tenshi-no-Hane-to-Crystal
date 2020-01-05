@@ -15,42 +15,36 @@ namespace StorybrewScripts
     public class Flash : StoryboardObjectGenerator
     {
         [Configurable]
-        public float startOpacity = 0.30f;
-        [Configurable]
-        public float beatDivisor = 1.0f;
-
+        public double startOpacity = 0.30;
         public override void Generate()
         {
-		    var layer = GetLayer("Flash");
-            var flash = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
-            flash.ScaleVec(0, 854, 480);
-            flash.Fade(0, 0);
+		    var flash = GetLayer("Flash");
+            int beatDivisor = 1;
 
             // Intro
-            flashIt(805, flash, beatDivisor, startOpacity); // BG1
-            flashIt(1715, flash, beatDivisor, startOpacity); // BG2
-            flashIt(2624, flash, beatDivisor, startOpacity); // BG3
-            flashIt(3533, flash, beatDivisor, startOpacity); // BG4
-            flashIt(4442, flash, beatDivisor / 4, startOpacity); // BG5
-            flashIt(6260, flash, beatDivisor / 2, startOpacity); // Credit
-
-            flashIt(7851, flash, beatDivisor, startOpacity); // Inst 1
-            flashIt(22169, flash, beatDivisor, startOpacity); // Verse 1
-            // flashIt(58987, flash, beatDivisor, startOpacity); // Verse 2
-            flashIt(98760, flash, beatDivisor, startOpacity); // Kiai 1 
-            flashIt(142624, flash, beatDivisor, startOpacity); // Verse 3
-            flashIt(182396, flash, beatDivisor, startOpacity); // Kiai 2   
-            flashIt(127851, flash, beatDivisor, startOpacity); // Inst 2
-            flashIt(211487, flash, beatDivisor, startOpacity); // Solo
-            flashIt(266033, flash, beatDivisor, startOpacity); // Inst 3
+            flashIt(805, flash, beatDivisor);
+            flashIt(1715, flash, beatDivisor);          
+            flashIt(2624, flash, beatDivisor);
+            flashIt(3533, flash, beatDivisor);
+            flashIt(4442, flash, beatDivisor * 0.25f);
+            flashIt(6260, flash, beatDivisor * 0.5f);
+            flashIt(7851, flash, beatDivisor);          // Inst 1
+            flashIt(22169, flash, beatDivisor);         // Verse 1
+            flashIt(98760, flash, beatDivisor);         // Kiai 1 
+            flashIt(142624, flash, beatDivisor);        // Verse 3
+            flashIt(182396, flash, beatDivisor);        // Kiai 2   
+            flashIt(127851, flash, beatDivisor);        // Inst 2
+            flashIt(211487, flash, beatDivisor);        // Solo
+            flashIt(266033, flash, beatDivisor);        // Inst 3
         }
 
-        private static OsbSprite flashIt (int startTime, OsbSprite sprite, double beatDivisor, float startOpacity) 
+        private void flashIt(int startTime, StoryboardLayer layer, double beatDivisor) 
         {
+            OsbSprite sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             var endTime = startTime + Constants.beatLength / beatDivisor;
+            sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, startOpacity, 0);
             sprite.Additive(startTime, endTime);
-            return sprite;
         }
     }
 }
