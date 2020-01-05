@@ -18,7 +18,7 @@ namespace StorybrewScripts
         public Vector2 ZoomChange = new Vector2(530f, 80f);
 
         [Configurable]
-        public float transientOpacity = 0.7f;
+        public float gradientOpacity = 0.7f;
 
         [Configurable]
         public float sdbgScale = 0.9f;
@@ -63,17 +63,17 @@ namespace StorybrewScripts
             finalSD.Fade(21033, 21260, 1, 0);
 
             // Bot Gradient
-            var transient = layer.CreateSprite("sb/transient.png", OsbOrigin.BottomCentre, new Vector2(320, 480));
-            transient.Scale(startTime, Constants.screenScale);
-            transient.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
-            transient.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient.OpacityAt(endTime), 0);
+            var gradient = layer.CreateSprite("sb/gradient.png", OsbOrigin.BottomCentre, new Vector2(320, 480));
+            gradient.Scale(startTime, Constants.screenScale);
+            gradient.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, gradientOpacity);
+            gradient.Fade(endTime, endTime + Constants.beatLength * 0.5f, gradient.OpacityAt(endTime), 0);
 
             // Top Gradient
-            var transient2 = layer.CreateSprite("sb/transient.png", OsbOrigin.TopCentre, new Vector2(320, 0));
-            transient2.FlipV(startTime, endTime + Constants.beatLength * 0.5f);
-            transient2.Scale(startTime, Constants.screenScale);
-            transient2.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
-            transient2.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient2.OpacityAt(endTime), 0);
+            var gradient2 = layer.CreateSprite("sb/gradient.png", OsbOrigin.TopCentre, new Vector2(320, 0));
+            gradient2.FlipV(startTime, endTime + Constants.beatLength * 0.5f);
+            gradient2.Scale(startTime, Constants.screenScale);
+            gradient2.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, gradientOpacity);
+            gradient2.Fade(endTime, endTime + Constants.beatLength * 0.5f, gradient2.OpacityAt(endTime), 0);
 
             // Radial Blur bg for zoom effect
             var bgR = layer.CreateSprite("sb/bg/clubRoomR.jpg", OsbOrigin.Centre);

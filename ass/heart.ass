@@ -16,4 +16,4 @@ Style: Default,Arial,20,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:01:34.44,0:01:36.94,Default,,0,0,0,,in my heart
+Dialogue: 0,0:01:34.66,0:01:36.94,Default,,0,0,0,,In my heart

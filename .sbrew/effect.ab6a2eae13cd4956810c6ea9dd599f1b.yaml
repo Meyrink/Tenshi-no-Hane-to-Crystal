@@ -2,7 +2,7 @@
 Name: "Inst 2"
 Script: "RoomMeguru"
 Config:
-  transientOpacity:
+  gradientOpacity:
     Type: "System.Single"
     Value: "0.7"
   sdbgScale:

@@ -5,7 +5,7 @@ Config:
   ZoomChange:
     Type: "OpenTK.Vector2"
     Value: "530,80"
-  transientOpacity:
+  gradientOpacity:
     Type: "System.Single"
     Value: "0.7"
   sdbgScale:

@@ -29,14 +29,14 @@ namespace StorybrewScripts
 
             cinemaHold.Scale(72851, Constants.screenScale);
             cinemaHold.Fade(OsbEasing.OutSine ,72851, 72851 + 227, 0, 1);
-            cinemaHold.Fade(98760, 0); //To fade for "in my heart"
+            cinemaHold.Fade(94669, 0); //To fade for "in my heart"
 
             // Meguru Expressions
             Vector2 face = Helpers.locationHandler(974f, 200f);
             Helpers.moveScaleAndFade("sb/scenes/cinemaLayer1.jpg", 66487, 73078, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/cinemaLayer2.jpg", 80124, 87396, face.X, face.Y, layer);
             OsbSprite cinemaFinal = Helpers.moveScaleAndFadeIn("sb/scenes/cinemaLayer3.jpg", 87169, 87169, face.X, face.Y, layer);
-            cinemaFinal.Fade(98760, 0); //To fade for "in my heart" 
+            cinemaFinal.Fade(94669, 0); //To fade for "in my heart" 
         }
     }
 }
