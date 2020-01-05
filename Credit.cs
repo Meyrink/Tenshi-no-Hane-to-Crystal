@@ -17,7 +17,7 @@ namespace StorybrewScripts
         public override void Generate()
         {
 		    var layer = GetLayer("Credits");
-            Vector2 CreditPos = Helpers.LocationHandler(649.5f, 639f);
+            Vector2 CreditPos = Helpers.locationHandler(649.5f, 639f);
 
             // Credit bar
             double startTime = 9215;

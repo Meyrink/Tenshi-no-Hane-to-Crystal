@@ -24,7 +24,7 @@ namespace StorybrewScripts
             Hug.Fade(211487, 0);
 
             // Meguru Expressions
-            Vector2 face = Helpers.LocationHandler(456.5f, 195.5f);
+            Vector2 face = Helpers.locationHandler(456.5f, 195.5f);
             Helpers.moveScaleAndFade("sb/scenes/hugLayer1.jpg", 185351, 189782, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/hugLayer3.jpg", 189555, 196714, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/hugLayer5.jpg", 196487, 198532, face.X, face.Y, layer);

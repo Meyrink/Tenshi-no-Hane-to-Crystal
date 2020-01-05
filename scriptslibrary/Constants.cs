@@ -38,7 +38,7 @@ namespace StorybrewScripts
             return sprite;
         }
         
-        public static Vector2 LocationHandler(float InitialX, float InitialY) 
+        public static Vector2 locationHandler(float InitialX, float InitialY) 
         {
             float xRatio = InitialX / 1280;
             float yRatio = InitialY / 720;

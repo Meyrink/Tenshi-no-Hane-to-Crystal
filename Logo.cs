@@ -36,22 +36,22 @@ namespace StorybrewScripts
             
             // Background
             var logobg = layer.CreateSprite("sb/logoBg.png", OsbOrigin.Centre);
-            ScaleAndRotate(logobg, startTime, endTime, 0, 45);
+            scaleAndRotate(logobg, startTime, endTime, 0, 45);
             var logolayer = layer.CreateSprite("sb/logoLayer.png", OsbOrigin.Centre);
-            ScaleAndRotate(logolayer, startTime, endTime, 0, -45);        
+            scaleAndRotate(logolayer, startTime, endTime, 0, -45);        
 
             // In between (particles)
-            GenerateEffect(layer, startTime, endTime, "sb/star.png");
+            generateParticles(layer, startTime, endTime, "sb/star.png");
 
             // Foreground
             var logo = layer.CreateSprite("sb/logo.png", OsbOrigin.Centre);
             logo.Fade(startTime, startTime + Constants.beatLength * 0.25f, 0 , 1);
             logo.Fade(endTime, 0);
-            Bounce(logo, startTime); 
+            bounce(logo, startTime); 
             logo.ScaleVec(endTime - Constants.beatLength * 1.5f, endTime, logoScale, logoScale, 0.73, 0.73);
         }
 
-        private void GenerateEffect(StoryboardLayer layer, double startTime, double endTime, string path)
+        private void generateParticles(StoryboardLayer layer, double startTime, double endTime, string path)
         {
             for (int i = 0; i < numSprites; i++)
             {
@@ -59,7 +59,7 @@ namespace StorybrewScripts
             }
         }
 
-        private void Bounce(OsbSprite sprite, double startTime) 
+        private void bounce(OsbSprite sprite, double startTime) 
         {
             var endTime = startTime + Constants.beatLength / bounceSpeed;
             sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale, logoScale, logoScale * 1.1, logoScale * 0.8);
@@ -77,7 +77,7 @@ namespace StorybrewScripts
             sprite.ScaleVec(bounceEasing, startTime, endTime, logoScale * 1.1, logoScale * 0.8, logoScale, logoScale);
         }
 
-        private void ScaleAndRotate(OsbSprite sprite, double startTime, double endTime, int startAngle, int endAngle)
+        private void scaleAndRotate(OsbSprite sprite, double startTime, double endTime, int startAngle, int endAngle)
         {
             sprite.Fade(startTime, startTime + Constants.beatLength / 4, 0 , 1);
             sprite.Fade(endTime, 0);

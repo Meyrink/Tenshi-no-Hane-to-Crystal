@@ -29,10 +29,10 @@ namespace StorybrewScripts
         public override void Generate()
         {
 		    var layer = GetLayer("Transition");
-            TransitionIn(layer, 57396, 58078);
-            TransitionOut(layer, 58078, 58760);
+            transitionIn(layer, 57396, 58078);
+            transitionOut(layer, 58078, 58760);
         }
-        private void TransitionIn(StoryboardLayer layer, double startTime, double endTime)
+        private void transitionIn(StoryboardLayer layer, double startTime, double endTime)
         {
             double width = 854 / barAmount;
             double height = 480;
@@ -49,7 +49,7 @@ namespace StorybrewScripts
                 relativeStart += barDuration;
             }
         }
-        private void TransitionOut(StoryboardLayer layer, double startTime, double endTime)
+        private void transitionOut(StoryboardLayer layer, double startTime, double endTime)
         {
             double width = 854 / barAmount;
             double height = 480;

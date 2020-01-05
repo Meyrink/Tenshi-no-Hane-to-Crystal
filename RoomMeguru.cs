@@ -33,15 +33,8 @@ namespace StorybrewScripts
             bg.Fade(127851, 1); // Blur in
             bg.Fade(128533, 0);
             bg.Fade(141260, 1); // Blur out
-            ZoomFlipEffect(bg, 141942);
+            zoomFlipEffect(bg, 141942);
             bg.Fade(142624, 0);
-
-            // Radial Blur bg for zoom effect
-            var bgR = layer.CreateSprite("sb/bg/meguRoomR.jpg", OsbOrigin.Centre);
-            bgR.Scale(141942, Constants.screenScale);
-            bgR.Fade(141942, 142624,0, 1);
-            ZoomFlipEffect(bgR, 141942);
-
 
             // SD Scenes 
             double startTime = 128305;
@@ -54,16 +47,16 @@ namespace StorybrewScripts
 
             // Orange Background for chibi scenes
             var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
-            FoldInOut(sdbg, startTime, endTime, sdbgScale);
+            foldInOut(sdbg, startTime, endTime, sdbgScale);
 
             // Chibi Scenes
-            FadeInOut(layer, "sb/sd/RoomSD1.jpg", 128987, sdScale);
-            FadeInOut(layer, "sb/sd/RoomSD2.jpg", 130805, sdScale);
-            FadeInOut(layer, "sb/sd/RoomSD3.jpg", 132624, sdScale);
-            FadeInOut(layer, "sb/sd/RoomSD4.jpg", 134442, sdScale);
-            FadeInOut(layer, "sb/sd/RoomSD5.jpg", 136260, sdScale);
-            FadeInOut(layer, "sb/sd/RoomSD6.jpg", 138078, sdScale);
-            var finalSD = FadeIn(layer, "sb/sd/RoomSD7.jpg", 139896, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD1.jpg", 128987, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD2.jpg", 130805, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD3.jpg", 132624, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD4.jpg", 134442, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD5.jpg", 136260, sdScale);
+            fadeInOut(layer, "sb/sd/RoomSD6.jpg", 138078, sdScale);
+            var finalSD = fadeIn(layer, "sb/sd/RoomSD7.jpg", 139896, sdScale);
             finalSD.Fade(141033, 141260, 1, 0);
 
             // Bot Gradient
@@ -78,16 +71,22 @@ namespace StorybrewScripts
             transient2.Scale(startTime, Constants.screenScale);
             transient2.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
             transient2.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient2.OpacityAt(endTime), 0);
+
+            // Radial Blur bg for zoom effect
+            var bgR = layer.CreateSprite("sb/bg/meguRoomR.jpg", OsbOrigin.Centre);
+            bgR.Scale(141942, Constants.screenScale);
+            bgR.Fade(141942, 142624,0, 1);
+            zoomFlipEffect(bgR, 141942);
         }
 
-        private OsbSprite FadeInOut(StoryboardLayer layer, string path, double startTime, float scale)
+        private OsbSprite fadeInOut(StoryboardLayer layer, string path, double startTime, float scale)
         {
-            var sprite = FadeIn(layer, path, startTime, scale);
+            var sprite = fadeIn(layer, path, startTime, scale);
             sprite.Fade(startTime + Constants.beatLength * 4, 0);
             return sprite;
         }
 
-        private OsbSprite FadeIn(StoryboardLayer layer, string path, double startTime, float scale)
+        private OsbSprite fadeIn(StoryboardLayer layer, string path, double startTime, float scale)
         {
             var sprite = layer.CreateSprite(path, OsbOrigin.Centre);
             sprite.Scale(startTime - Constants.beatLength * 0.5f, scale);
@@ -95,7 +94,7 @@ namespace StorybrewScripts
             return sprite;
         }
 
-        private void FoldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
+        private void foldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
         {
             sprite.ScaleVec(startTime, startTime + Constants.beatLength * 0.5f, scale, 0, scale, scale);
             sprite.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
@@ -103,7 +102,7 @@ namespace StorybrewScripts
             sprite.Fade(endTime, endTime + Constants.beatLength * 0.5f, sprite.OpacityAt(endTime), 0);
         }
 
-        private void ZoomFlipEffect(OsbSprite sprite, double startTime)
+        private void zoomFlipEffect(OsbSprite sprite, double startTime)
         {
             var endTime = startTime + Constants.beatLength * 1.5;
             sprite.Scale(startTime, endTime, sprite.ScaleAt(startTime).X, 1.6);

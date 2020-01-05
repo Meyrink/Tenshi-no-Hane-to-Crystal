@@ -25,8 +25,8 @@ namespace StorybrewScripts
 		    var layer = GetLayer("Heart");
 
             var heart = layer.CreateSprite("sb/scenes/heart.jpg", OsbOrigin.Centre);
-            heart.Fade(226033, 227396, 0, 0.2);
-            heart.Fade(227396, 227851, 0.2, 0.5);
+            heart.Fade(OsbEasing.OutSine, 226033, 227396, 0, 0.2);
+            heart.Fade(OsbEasing.InSine, 227396, 227851, 0.2, 0.5);
             heart.Scale(226033, 1.4);
             heart.Fade(266033, 0);
 
@@ -55,7 +55,7 @@ namespace StorybrewScripts
             heart.Fade(OsbEasing.InOutCubic, 240578, 242396, heart.OpacityAt(240578), 1);
 
             // Meguru Expressions
-            Vector2 face = Helpers.LocationHandler(610.5f, 347.5f);
+            Vector2 face = Helpers.locationHandler(610.5f, 347.5f);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer1.jpg", 245351, 249215, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer2.jpg", 248987, 256942, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer3.jpg", 256715, 261942, face.X, face.Y, layer);

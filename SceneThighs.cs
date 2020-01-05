@@ -25,7 +25,7 @@ namespace StorybrewScripts
             thighs.Fade(182396, 0); // To fade for transition
 
             // Meguru Expressions
-            Vector2 face = Helpers.LocationHandler(299f, 199f);
+            Vector2 face = Helpers.locationHandler(299f, 199f);
             Helpers.moveScaleAndFade("sb/scenes/thighsLayer1.jpg", 150124, 156487, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/thighsLayer5.jpg", 156260, 160124, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/thighsLayer6.jpg", 159896, 163760, face.X, face.Y, layer);

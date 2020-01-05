@@ -22,7 +22,12 @@ namespace StorybrewScripts
         {
 		    var layer = GetLayer("Outro");
 
-            double endTime = startTime + Constants.beatLength * 4 * 2;
+            var tempBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            tempBg.ScaleVec(282851, 854, 480);
+            tempBg.Fade(282851, 1);
+            tempBg.Fade(293668, 0);
+
+            double endTime = startTime + Constants.beatLength * 6;
             double frameDelay = (endTime - startTime) / 47;
 
             var smile = layer.CreateAnimation("sb/outro/smile.jpg", frameCount, frameDelay, OsbLoopType.LoopOnce, OsbOrigin.Centre);

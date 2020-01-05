@@ -36,14 +36,8 @@ namespace StorybrewScripts
             bg.Fade(7851, 1); // Blur in
             bg.Fade(8533, 0);
             bg.Fade(21260, 1); // Blur out
-            ZoomEffect(bg, 21487);
+            zoomEffect(bg, 21487);
             bg.Fade(22169, 0);
-
-            // Radial Blur bg for zoom effect
-            var bgR = layer.CreateSprite("sb/bg/clubRoomR.jpg", OsbOrigin.Centre);
-            bgR.Scale(21487, Constants.screenScale);
-            bgR.Fade(OsbEasing.OutCirc, 21487, 22169, 0, 1);
-            ZoomEffect(bgR, 21487);
 
             // SD Scenes
             double startTime = 8305;
@@ -56,16 +50,16 @@ namespace StorybrewScripts
 
             // Orange Background for chibi scenes
             var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
-            FoldInOut(sdbg, startTime, endTime, sdbgScale);
+            foldInOut(sdbg, startTime, endTime, sdbgScale);
 
             // Chibi Scenes
-            FadeInOut(layer, "sb/sd/ClubSD1.jpg", 8987, sdScale);
-            FadeInOut(layer, "sb/sd/ClubSD2.jpg", 10805, sdScale);
-            FadeInOut(layer, "sb/sd/ClubSD3.jpg", 12624, sdScale);
-            FadeInOut(layer, "sb/sd/ClubSD4.jpg", 14442, sdScale);
-            FadeInOut(layer, "sb/sd/ClubSD5.jpg", 16260, sdScale);
-            FadeInOut(layer, "sb/sd/ClubSD6.jpg", 18078, sdScale);
-            var finalSD = FadeIn(layer, "sb/sd/ClubSD7.jpg", 19896, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD1.jpg", 8987, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD2.jpg", 10805, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD3.jpg", 12624, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD4.jpg", 14442, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD5.jpg", 16260, sdScale);
+            fadeInOut(layer, "sb/sd/ClubSD6.jpg", 18078, sdScale);
+            var finalSD = fadeIn(layer, "sb/sd/ClubSD7.jpg", 19896, sdScale);
             finalSD.Fade(21033, 21260, 1, 0);
 
             // Bot Gradient
@@ -80,16 +74,22 @@ namespace StorybrewScripts
             transient2.Scale(startTime, Constants.screenScale);
             transient2.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, transientOpacity);
             transient2.Fade(endTime, endTime + Constants.beatLength * 0.5f, transient2.OpacityAt(endTime), 0);
+
+            // Radial Blur bg for zoom effect
+            var bgR = layer.CreateSprite("sb/bg/clubRoomR.jpg", OsbOrigin.Centre);
+            bgR.Scale(21487, Constants.screenScale);
+            bgR.Fade(OsbEasing.OutCirc, 21487, 22169, 0, 1);
+            zoomEffect(bgR, 21487);
         }
 
-        private OsbSprite FadeInOut(StoryboardLayer layer, string path, double startTime, float scale)
+        private OsbSprite fadeInOut(StoryboardLayer layer, string path, double startTime, float scale)
         {
-            var sprite = FadeIn(layer, path, startTime, scale);
+            var sprite = fadeIn(layer, path, startTime, scale);
             sprite.Fade(startTime + Constants.beatLength * 4, 0);
             return sprite;
         }
 
-        private OsbSprite FadeIn(StoryboardLayer layer, string path, double startTime, float scale)
+        private OsbSprite fadeIn(StoryboardLayer layer, string path, double startTime, float scale)
         {
             var sprite = layer.CreateSprite(path, OsbOrigin.Centre);
             sprite.Scale(startTime - Constants.beatLength * 0.5f, scale);
@@ -97,7 +97,7 @@ namespace StorybrewScripts
             return sprite;
         }
 
-        private void ZoomEffect(OsbSprite sprite, double startTime)
+        private void zoomEffect(OsbSprite sprite, double startTime)
         {
             var center = new Vector2(320f, 240f);
             var endTime = startTime + Constants.beatLength * 1.5;
@@ -107,7 +107,7 @@ namespace StorybrewScripts
             sprite.Rotate(OsbEasing.InCirc, startTime, endTime, 0, -Math.PI/4);
         }
         
-        private void FoldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
+        private void foldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
         {
             sprite.ScaleVec(startTime, startTime + Constants.beatLength * 0.5f, scale, 0, scale, scale);
             sprite.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
