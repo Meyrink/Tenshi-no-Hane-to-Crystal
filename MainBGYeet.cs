@@ -29,6 +29,9 @@ namespace StorybrewScripts
 
             whiteBg.Fade(6260, WhiteBGOpacity);
             whiteBg.Fade(7851, 0);
+
+            whiteBg.Fade(283760, WhiteBGOpacity);
+            whiteBg.Fade(293668, 0);
         }
     }
 }

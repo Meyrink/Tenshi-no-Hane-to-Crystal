@@ -41,8 +41,7 @@ namespace StorybrewScripts
 
             for (int i = 1; i <= barAmount; i++)
             {
-                Vector2 Pos = FindPosIn(i);
-                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomRight, Pos);
+                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.BottomRight, new Vector2((float)(-107 + i * width), (float)480.0));
                 sprite.Color(startTime, color); 
                 sprite.Fade(relativeStart, 1);
                 sprite.Fade(endTime, 0);
@@ -59,28 +58,13 @@ namespace StorybrewScripts
 
             for (int i = 1; i <= barAmount; i++)
             {
-                Vector2 Pos = FindPosOut(i);
-                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.TopLeft, Pos);
+                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.TopLeft, new Vector2((float)(-107 + i * width), (float)0));
                 sprite.Color(startTime, color); 
                 sprite.Fade(relativeStart, 1);
                 sprite.Fade(endTime, 0);
                 sprite.ScaleVec(easing, relativeStart, relativeStart + barDuration, width, height, width * foldRatio, 0);
                 relativeStart += barDuration;
             }
-        }
-        private Vector2 FindPosIn(double index) 
-        {
-            double width = 854 / barAmount;
-            float x = (float) (-107 + index * width);
-            float y = (float) (480);
-            return new Vector2(x, y);
-        }
-        private Vector2 FindPosOut(double index) 
-        {
-            double width = 854 / barAmount;
-            float x = (float) (-107 + index * width);
-            float y = (float) (0);
-            return new Vector2(x, y);
         }
     }
 }

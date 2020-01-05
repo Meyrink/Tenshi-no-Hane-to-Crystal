@@ -69,6 +69,6 @@ Config:
 Layers:
   242d881f708841ba9bf53ce7de4e1a19:
     Name: "Logo"
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

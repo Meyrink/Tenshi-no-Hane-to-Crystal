@@ -1,0 +1,20 @@
+﻿FormatVersion: 6
+Name: "Outro"
+Script: "MeguruSmile"
+Config:
+  startTime:
+    Type: "System.Double"
+    Value: "280578"
+  frameCount:
+    Type: "System.Int32"
+    Value: "47"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  b4095d7be6254b60a7c3e1b16ba0c9aa:
+    Name: "Outro"
+    OsbLayer: Background
+    DiffSpecific: No
+    Visible: Yes

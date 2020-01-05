@@ -50,7 +50,7 @@ namespace StorybrewScripts
             heart.Rotate(233305, 242396, MathHelper.DegreesToRadians(rotation), 0);
 
             // Reset heart position then moving the whole background down to Yfloor
-            heart.Move(OsbEasing.InOutCubic, 240578, 242396, heart.PositionAt(240578).X, heart.PositionAt(240578).Y, center.X , center.Y * 1.175); // 1.175‬ = (846/720)
+            heart.Move(OsbEasing.InOutCubic, 240578, 242396, heart.PositionAt(240578).X, heart.PositionAt(240578).Y, center.X , center.Y * (float)(846f/720f));
             heart.Scale(OsbEasing.InOutCubic, 240578, 242396, 1.4, Constants.screenScale);
             heart.Fade(OsbEasing.InOutCubic, 240578, 242396, heart.OpacityAt(240578), 1);
 

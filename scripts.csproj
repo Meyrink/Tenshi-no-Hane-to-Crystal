@@ -58,6 +58,7 @@
     <Compile Include="Logo.cs" />
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
+    <Compile Include="MeguruSmile.cs" />
     <Compile Include="RinkTransition.cs" />
     <Compile Include="RoomClub.cs" />
     <Compile Include="RoomMeguru.cs" />
@@ -68,7 +69,9 @@
     <Compile Include="SceneHug.cs" />
     <Compile Include="SceneThighs.cs" />
     <Compile Include="Shadow.cs" />
+    <Compile Include="Solo.cs" />
     <Compile Include="Transition.cs" />
+    <Compile Include="TransitionTarrot.cs" />
     <Compile Include="scriptslibrary/Constants.cs" />
   </ItemGroup>
   <ItemGroup />
