@@ -32,15 +32,23 @@ namespace StorybrewScripts
 
         [Configurable]
         public OsbOrigin origin = OsbOrigin.Centre;
+        [Configurable]
+        public OsbEasing heartEasing = OsbEasing.None;
+
+        [Configurable]
+        public Color4 heartColor1 = Color4.LightSkyBlue;
+
+        [Configurable]
+        public Color4 heartColor2 = Color4.Orange;
 
         StoryboardLayer layer;
 
         public override void Generate()
         {
 		    layer = GetLayer("In My Heart");
-            
+
             double startTime = 94669;
-            double endTime = 98760;
+            double endTime = 97624;
 
             // Temporary Background
             var tempBG = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
@@ -50,7 +58,24 @@ namespace StorybrewScripts
             tempBG.Color(startTime, bgColor);
 
             // Outer Heart
+            endTime = 96942;
             var outHeart = layer.CreateSprite("sb/particles/heartouter.png", OsbOrigin.Centre);
+            outHeart.Fade(startTime - Constants.beatLength * 0.5, startTime, 0, 1);
+            outHeart.Scale(startTime - Constants.beatLength * 0.5, startTime, 0, Constants.screenScale * 0.8);
+            outHeart.Scale(startTime, endTime, outHeart.ScaleAt(startTime).X, Constants.screenScale * 1.05);
+            outHeart.Fade(endTime, 0);
+
+            var outHeart2 = layer.CreateSprite("sb/particles/heartouter.png", OsbOrigin.Centre);
+            outHeart2.Color(startTime, bgColor);
+            outHeart2.Fade(startTime - Constants.beatLength * 0.5, startTime, 0, 1);
+            outHeart2.Scale(startTime - Constants.beatLength * 0.5, startTime, 0, Constants.screenScale * 0.7);
+            outHeart2.Scale(startTime, endTime, outHeart2.ScaleAt(startTime).X, Constants.screenScale * 1.05);
+            outHeart2.Fade(endTime, 0);
+
+            // Inner Heart
+            heart(layer, 97169, heartColor1);
+            heart(layer, 97624, heartColor2);
+            heart(layer, 98078, Color4.White);
 
             // Lyrics
             var inMyHeart = LoadSubtitles("ass/heart.ass");
@@ -67,8 +92,16 @@ namespace StorybrewScripts
             });
             generateLyrics(font, inMyHeart, layer);
         }
+        private void heart(StoryboardLayer layer, double startTime, Color4 color)
+        {
+            var heart = layer.CreateSprite("sb/particles/heart.png", OsbOrigin.Centre);
+            heart.Color(startTime, color);
+            heart.Scale(heartEasing, startTime, startTime + Constants.beatLength, 0, 2);
+            heart.Fade(startTime, 1);
+            heart.Fade(startTime + Constants.beatLength * 2, 1);
+        }
 
-        public void generateLyrics(FontGenerator font, SubtitleSet subtitles, StoryboardLayer layer)
+        private void generateLyrics(FontGenerator font, SubtitleSet subtitles, StoryboardLayer layer)
         {
             foreach (var subtitleLine in subtitles.Lines)
             {
@@ -103,7 +136,7 @@ namespace StorybrewScripts
                             sprite.Fade(subtitleLine.StartTime, subtitleLine.StartTime + Constants.beatLength * 0.25, 0, 1);
                             sprite.Fade(subtitleLine.EndTime, 0);
 
-                            // thanos(texture.Path, subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.5, sprite.PositionAt(subtitleLine.EndTime));
+                            thanos(texture.Path, subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.5, sprite.PositionAt(subtitleLine.EndTime));
                         }
                         letterX += texture.BaseWidth * Constants.fontScale;
                     }
