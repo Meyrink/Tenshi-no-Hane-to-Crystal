@@ -58,18 +58,18 @@ namespace StorybrewScripts
             // Outer Heart
             startTime = 94669;
             endTime = 96942;
-            var outHeart = layer.CreateSprite("sb/particles/heartouter.png", OsbOrigin.Centre);
+            var outHeart = layer.CreateSprite("sb/particles/heart.png", OsbOrigin.Centre);
             outHeart.Fade(startTime - Constants.beatLength * 0.5, startTime, 0, 1);
             outHeart.Scale(startTime - Constants.beatLength * 0.5, startTime, 0, Constants.screenScale * 0.8);
             outHeart.Scale(startTime, endTime, outHeart.ScaleAt(startTime).X, Constants.screenScale * 1.05);
             outHeart.Fade(endTime, 0);
 
-            var outHeart2 = layer.CreateSprite("sb/particles/heartouter.png", OsbOrigin.Centre);
-            outHeart2.Color(startTime, bgColor);
-            outHeart2.Fade(startTime - Constants.beatLength * 0.5, startTime, 0, 1);
-            outHeart2.Scale(startTime - Constants.beatLength * 0.5, startTime, 0, Constants.screenScale * 0.7);
-            outHeart2.Scale(startTime, endTime, outHeart2.ScaleAt(startTime).X, Constants.screenScale * 1.05);
-            outHeart2.Fade(endTime, 0);
+            var inHeart = layer.CreateSprite("sb/particles/heart.png", OsbOrigin.Centre);
+            inHeart.Color(startTime, bgColor);
+            inHeart.Fade(startTime - Constants.beatLength * 0.5, startTime, 0, 1);
+            inHeart.Scale(startTime - Constants.beatLength * 0.5, startTime, 0, Constants.screenScale * 0.7);
+            inHeart.Scale(startTime, endTime, inHeart.ScaleAt(startTime).X, Constants.screenScale * 1.05);
+            inHeart.Fade(endTime, 0);
 
             // Inner Heart
             heart(layer, 97169, heartColor1, false);
