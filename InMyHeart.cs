@@ -16,30 +16,28 @@ namespace StorybrewScripts
     public class InMyHeart : StoryboardObjectGenerator
     {
         [Configurable]
-        public Color4 bgColor = Color4.White;
-
-        [Configurable]
         public string fontName = "Gabriola";
 
         [Configurable]
-        public int fontSize = 150;
+        public int fontSize = 120;
 
         [Configurable]
         public FontStyle fontstyle = FontStyle.Regular;
 
         [Configurable]
-        public Color4 fontColor = Color4.Black;
+        public OsbEasing heartEasing = OsbEasing.InOutSine;
 
         [Configurable]
-        public OsbOrigin origin = OsbOrigin.Centre;
-        [Configurable]
-        public OsbEasing heartEasing = OsbEasing.None;
+        public Color4 bgColor = Color4.White; //#FEBA98
 
         [Configurable]
-        public Color4 heartColor1 = Color4.LightSkyBlue;
+        public Color4 fontColor = Color4.Black; //#D28369
 
         [Configurable]
-        public Color4 heartColor2 = Color4.Orange;
+        public Color4 heartColor1 = Color4.LightSkyBlue; //#FFE4A6
+
+        [Configurable]
+        public Color4 heartColor2 = Color4.Orange; //#B3DFFF
 
         StoryboardLayer layer;
 
@@ -77,6 +75,10 @@ namespace StorybrewScripts
             heart(layer, 97624, heartColor2);
             heart(layer, 98078, Color4.White);
 
+            // Particles
+            generateParticles(layer, 94442, 97169, "sb/particles/star.png", 30, true);
+            generateParticles(layer, 94442, 97169, "sb/particles/float.png", 30, false);
+
             // Lyrics
             var inMyHeart = LoadSubtitles("ass/heart.ass");
             FontGenerator font = LoadFont("sb/lyrics/enFont", new FontDescription() 
@@ -90,8 +92,34 @@ namespace StorybrewScripts
                 EffectsOnly = false,
                 Debug = false,
             });
-            generateLyrics(font, inMyHeart, layer);
+            generateLyrics(font, inMyHeart, layer); 
         }
+        private void generateParticles(StoryboardLayer layer, double startTime, double endTime, string path, int particleNum, bool rotate)
+        {
+            Vector2 center = new Vector2(320, 240);
+            for (int i = 0; i < particleNum; i++)
+            {
+                Vector2 randomCenter = new Vector2(320 + Random(-267, 267), 240 + Random(-120, 120));
+                Vector2 distance = Vector2.Subtract(center, randomCenter);
+
+                var particle = layer.CreateSprite(path, OsbOrigin.Centre);
+                
+                // Spreading stuff randomly, then expanding that random position by a distance
+                particle.Scale(startTime, Random(0.2, 0.8));
+                if (rotate) particle.Rotate(startTime, endTime, 0, Random(-Math.PI, Math.PI));
+                particle.Fade(startTime, startTime + 227, 0, 1);
+                particle.Move(startTime, startTime + 227, center, randomCenter);
+                particle.Move(startTime + 227, endTime - 227, particle.PositionAt(startTime + 227), Vector2.Subtract(particle.PositionAt(startTime + 227), distance));
+                
+                // Moving stuff back to center
+                Vector2 currentPos = particle.PositionAt(endTime - 227);
+                distance = Vector2.Subtract(center, currentPos);
+                particle.Move(OsbEasing.OutCirc, endTime - 227, endTime, particle.PositionAt(endTime - 227), Vector2.Add(particle.PositionAt(endTime - 227), distance));
+                particle.Scale(endTime - 227, endTime, particle.ScaleAt(endTime - 227).X, 0.2);
+                particle.Fade(endTime - 227, endTime, 1, 0);
+            }
+        }
+        
         private void heart(StoryboardLayer layer, double startTime, Color4 color)
         {
             var heart = layer.CreateSprite("sb/particles/heart.png", OsbOrigin.Centre);
@@ -125,18 +153,18 @@ namespace StorybrewScripts
                         if (!texture.IsEmpty)
                         {
                             var position = new Vector2(letterX, (float)(letterY - lineHeight * 0.5)) // Moving Lyics To Y center
-                                + texture.OffsetFor(origin) * Constants.fontScale;
+                                + texture.OffsetFor(OsbOrigin.Centre) * Constants.fontScale;
                             
                             var distance = Vector2.Subtract(position, center); // Distance between each letter and center
 
-                            var sprite = layer.CreateSprite(texture.Path, origin); 
+                            var sprite = layer.CreateSprite(texture.Path, OsbOrigin.Centre); 
                             sprite.MoveY(subtitleLine.StartTime, position.Y);
                             sprite.MoveX(subtitleLine.StartTime, subtitleLine.EndTime, position.X, position.X + distance.X * 0.25); // Move away from center
                             sprite.Scale(subtitleLine.StartTime, Constants.fontScale);
                             sprite.Fade(subtitleLine.StartTime, subtitleLine.StartTime + Constants.beatLength * 0.25, 0, 1);
                             sprite.Fade(subtitleLine.EndTime, 0);
 
-                            thanos(texture.Path, subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.5, sprite.PositionAt(subtitleLine.EndTime));
+                            // thanos(texture.Path, subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.5, sprite.PositionAt(subtitleLine.EndTime));
                         }
                         letterX += texture.BaseWidth * Constants.fontScale;
                     }
