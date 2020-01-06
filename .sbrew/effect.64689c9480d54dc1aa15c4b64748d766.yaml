@@ -46,7 +46,7 @@ Config:
       InOutBounce: "34"
   color:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.03921569,0.03921569,0.03921569,1"
+    Value: "0.06,0.06,0.06,0"
   foldRatio:
     Type: "System.Single"
     Value: "0.3"

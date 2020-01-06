@@ -34,7 +34,7 @@ namespace StorybrewScripts
             // Verse 1
             flashIt(22169, 22624);     
             // Kiai 1
-            flashIt(98760, 99896);
+            flashIt(98760, 100578);
             // Inst 2
             flashIt(127851, 128305);
             // Verse 3

@@ -14,11 +14,13 @@ namespace StorybrewScripts
 {
     public class Shadow : StoryboardObjectGenerator
     {
+        [Configurable]
+        public float opacity = 1;
         public override void Generate()
         {
             var layer = GetLayer("Shadow");
-            var shadow = layer.CreateSprite("sb/shadow.png", OsbOrigin.Centre);            
-            shadow.Fade(0, 1);
+            var shadow = layer.CreateSprite("sb/damnae-vignette-854x480.png", OsbOrigin.Centre);            
+            shadow.Fade(0, opacity);
             shadow.Fade(293668, 0);
         }
     }

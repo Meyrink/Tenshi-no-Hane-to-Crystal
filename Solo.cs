@@ -23,7 +23,7 @@ namespace StorybrewScripts
             var layer = GetLayer("Solo");
             slideShow(layer, "sb/bg/s1.jpg", 211487, 215124, OsbOrigin.CentreLeft, -20, false, false);
             zoomIn(layer, "sb/bg/s2.jpg", 215124, 218760, 1.02);
-            slideShow(layer, "sb/bg/s3.jpg", 218760, 220578, OsbOrigin.CentreRight, +10, true, false);
+            slideShow(layer, "sb/bg/s3.jpg", 218760, 220578, OsbOrigin.CentreLeft, -10, true, false);
             slideShow(layer, "sb/bg/s4.jpg", 220578, 222624, OsbOrigin.CentreLeft, -10, true, false);
             slideShow(layer, "sb/bg/s5.jpg", 222624, 226033, OsbOrigin.CentreLeft, -20, true, true);
         }
