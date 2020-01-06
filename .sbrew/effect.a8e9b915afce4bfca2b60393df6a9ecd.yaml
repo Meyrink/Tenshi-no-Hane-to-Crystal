@@ -10,7 +10,7 @@ Config:
     Value: "Gabriola"
   fontSize:
     Type: "System.Int32"
-    Value: "150"
+    Value: "120"
   fontstyle:
     Type: "System.Int32"
     Value: "1"
@@ -23,12 +23,6 @@ Config:
   fontColor:
     Type: "OpenTK.Graphics.Color4"
     Value: "0,0,0,1"
-  chrousScale:
-    Type: "System.Single"
-    Value: "0.5"
-  fineness:
-    Type: "System.Int32"
-    Value: "2"
   origin:
     Type: "System.Int32"
     Value: "4"
