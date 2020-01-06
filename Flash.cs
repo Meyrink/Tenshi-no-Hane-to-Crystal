@@ -16,32 +16,40 @@ namespace StorybrewScripts
     {
         [Configurable]
         public double startOpacity = 0.30;
+
+        StoryboardLayer flash;
         public override void Generate()
         {
-		    var flash = GetLayer("Flash");
-            int beatDivisor = 1;
+		    flash = GetLayer("Flash");
 
             // Intro
-            flashIt(805, flash, beatDivisor);
-            flashIt(1715, flash, beatDivisor);          
-            flashIt(2624, flash, beatDivisor);
-            flashIt(3533, flash, beatDivisor);
-            flashIt(4442, flash, beatDivisor * 0.25f);
-            flashIt(6260, flash, beatDivisor * 0.5f);
-            flashIt(7851, flash, beatDivisor);          // Inst 1
-            flashIt(22169, flash, beatDivisor);         // Verse 1
-            flashIt(98760, flash, beatDivisor);         // Kiai 1 
-            flashIt(142624, flash, beatDivisor);        // Verse 3
-            flashIt(182396, flash, beatDivisor);        // Kiai 2   
-            flashIt(127851, flash, beatDivisor);        // Inst 2
-            flashIt(211487, flash, beatDivisor);        // Solo
-            flashIt(266033, flash, beatDivisor);        // Inst 3
+            flashIt(805, 1260);
+            flashIt(1715, 2169);
+            flashIt(2624, 3078);
+            flashIt(3533, 3987);
+            flashIt(4442, 6260);
+            flashIt(6260, 7169);
+            // Inst 1
+            flashIt(7851, 8305);
+            // Verse 1
+            flashIt(22169, 22624);     
+            // Kiai 1
+            flashIt(98760, 99896);
+            // Inst 2
+            flashIt(127851, 128305);
+            // Verse 3
+            flashIt(142624, 143078);
+            // Kiai 2
+            flashIt(182396, 183533);
+            // Solo
+            flashIt(211487, 212624);
+            // Inst 3
+            flashIt(266033, 266715);
         }
 
-        private void flashIt(int startTime, StoryboardLayer layer, double beatDivisor) 
+        private void flashIt(double startTime, double endTime) 
         {
-            OsbSprite sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
-            var endTime = startTime + Constants.beatLength / beatDivisor;
+            OsbSprite sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, startOpacity, 0);
             sprite.Additive(startTime, endTime);
