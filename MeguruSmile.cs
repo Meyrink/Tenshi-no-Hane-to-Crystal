@@ -34,6 +34,11 @@ namespace StorybrewScripts
             smile.Scale(startTime, Constants.screenScale);
             smile.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
             smile.Fade(endTime -  Constants.beatLength * 1, endTime, 1, 0);
+
+            var fin = layer.CreateSprite("sb/end.png", OsbOrigin.Centre);
+            fin.Fade(283987, 284442, 0, 1);
+            fin.Scale(284442, Constants.screenScale);
+            fin.Fade(287851, 288078, 1, 0);
         }
     }
 }

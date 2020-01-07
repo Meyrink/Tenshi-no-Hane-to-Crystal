@@ -21,7 +21,7 @@ namespace StorybrewScripts
             var Hug = layer.CreateSprite("sb/scenes/hug.jpg" , OsbOrigin.Centre);
             Hug.Scale(182396, Constants.screenScale);
             Hug.Fade(182396, 1);
-            Hug.Fade(211487, 0);
+            Hug.Fade(209669, 0);
 
             // Meguru Expressions
             Vector2 face = Helpers.locationHandler(456.5f, 195.5f);

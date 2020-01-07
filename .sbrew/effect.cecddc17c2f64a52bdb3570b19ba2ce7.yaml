@@ -1,13 +1,13 @@
 ﻿FormatVersion: 6
-Name: "Transition"
-Script: "Transition"
+Name: "Chorus 2 End"
+Script: "SceneHugEnd"
 Config:
   barAmount:
     Type: "System.Int32"
     Value: "30"
   easing:
     Type: "System.Int32"
-    Value: "16"
+    Value: "0"
     AllowedValues:
       None: "0"
       Out: "1"
@@ -46,17 +46,14 @@ Config:
       InOutBounce: "34"
   color:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.04,0.04,0.04,0"
-  foldRatio:
-    Type: "System.Single"
-    Value: "0.3"
+    Value: "0,0,0,1"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  04ea7781ebd3492a94c2c50b8efc70d2:
-    Name: "Transition"
-    OsbLayer: Foreground
+  f6a0717ad13f457c83c9680b953048f2:
+    Name: "Kiai 2 End"
+    OsbLayer: Background
     DiffSpecific: No
     Visible: Yes

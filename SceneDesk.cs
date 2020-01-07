@@ -19,17 +19,16 @@ namespace StorybrewScripts
             var layer = GetLayer("Desk");
 
             var desk = layer.CreateSprite("sb/scenes/desk.jpg", OsbOrigin.Centre); 
-            var deskR = layer.CreateSprite("sb/scenes/deskR.jpg", OsbOrigin.Centre); 
-
             desk.Fade(22169, 1);
             desk.Scale(OsbEasing.OutCirc, 22169, 22624, 1.65, Constants.screenScale);
             desk.Rotate(OsbEasing.OutCirc, 22169, 22624, Math.PI/4, 0);
-            desk.Fade(58078, 1);
+            desk.Fade(58078, 0);
 
             Helpers.bounceEffect(22624, desk);
 
+            var deskR = layer.CreateSprite("sb/scenes/deskR.jpg", OsbOrigin.Centre); 
             deskR.Fade(22169, 0.7);
-            deskR.Fade(22169, 22851, desk.OpacityAt(22283), 0);
+            deskR.Fade(22169, 22624, desk.OpacityAt(22283), 0);
             deskR.Scale(OsbEasing.OutCirc, 22169, 22624, 1.65, Constants.screenScale);
             deskR.Rotate(OsbEasing.OutCirc, 22169, 22624, Math.PI/4, 0);
 

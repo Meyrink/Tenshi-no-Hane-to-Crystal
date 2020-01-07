@@ -78,8 +78,9 @@ namespace StorybrewScripts
             // Radial Blur bg for zoom effect
             var bgR = layer.CreateSprite("sb/bg/clubRoomR.jpg", OsbOrigin.Centre);
             bgR.Scale(21487, Constants.screenScale);
-            bgR.Fade(OsbEasing.OutCirc, 21487, 22169, 0, 1);
+            bgR.Fade(21487, 21942, 0, 1);
             zoomEffect(bgR, 21487);
+            bgR.Fade(22169, 0);
         }
 
         private OsbSprite fadeInOut(StoryboardLayer layer, string path, double startTime, float scale)

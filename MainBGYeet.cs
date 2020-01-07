@@ -14,8 +14,6 @@ namespace StorybrewScripts
 {
     public class MainBGYeet : StoryboardObjectGenerator
     {
-        [Configurable]
-        public float WhiteBGOpacity = 0.8f; 
         public override void Generate()
         {
 		    var layer = GetLayer("White BG");
@@ -24,11 +22,8 @@ namespace StorybrewScripts
 
             var whiteBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             whiteBg.ScaleVec(0, 854, 480);
-            whiteBg.Fade(0, WhiteBGOpacity);
+            whiteBg.Fade(0, 1);
             whiteBg.Fade(805, 0);
-
-            whiteBg.Fade(6260, WhiteBGOpacity);
-            whiteBg.Fade(7851, 0);
         }
     }
 }

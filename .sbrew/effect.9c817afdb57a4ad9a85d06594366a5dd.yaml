@@ -2,9 +2,6 @@
 Name: "White BG"
 Script: "MainBGYeet"
 Config:
-  WhiteBGOpacity:
-    Type: "System.Single"
-    Value: "1"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

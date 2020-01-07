@@ -23,36 +23,64 @@ namespace StorybrewScripts
 		    flash = GetLayer("Flash");
 
             // Intro
-            flashIt(805, 1260);
-            flashIt(1715, 2169);
-            flashIt(2624, 3078);
-            flashIt(3533, 3987);
-            flashIt(4442, 6260);
-            flashIt(6260, 7169);
+            flashOut(805, 1260, true);
+            flashOut(1715, 2169, true);
+            flashOut(2624, 3078, true);
+            flashOut(3533, 3987, true);
+            flashOut(4442, 6260, true);
+            flashOut(6260, 7169, true);
+
             // Inst 1
-            flashIt(7851, 8305);
+            flashOut(7851, 8305, true);
+
             // Verse 1
-            flashIt(22169, 22624);     
+            flashOut(22169, 22396, true); 
+
             // Kiai 1
-            flashIt(98760, 100578);
+            flashColor(98760, 100351, Color4.LightSkyBlue);
+            flashIn(125805, 126033, Color4.LightSkyBlue);
+
             // Inst 2
-            flashIt(127851, 128305);
+            flashOut(127851, 128305, true);
+
             // Verse 3
-            flashIt(142624, 143078);
+            flashOut(142624, 143078, true);
+
             // Kiai 2
-            flashIt(182396, 183533);
+            flashColor(182396, 183533, Color4.SteelBlue);
+            flashIn(209442, 209669, Color4.SteelBlue);
+
             // Solo
-            flashIt(211487, 212624);
+            flashColor(211487, 212624, Color4.LightGoldenrodYellow);
+            
             // Inst 3
-            flashIt(266033, 266715);
+            flashOut(266033, 266715, true);
         }
 
-        private void flashIt(double startTime, double endTime) 
+        private void flashOut(double startTime, double endTime, bool additive) 
         {
             OsbSprite sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, startOpacity, 0);
+            if (additive) sprite.Additive(startTime, endTime);
+        }
+
+        private void flashColor(double startTime, double endTime, Color4 color) 
+        {
+            OsbSprite sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            sprite.ScaleVec(startTime, 854, 480);
+            sprite.Color(startTime, color);
+            sprite.Fade(startTime, endTime, 0.4, 0);
             sprite.Additive(startTime, endTime);
+        }
+
+        private void flashIn(double startTime, double endTime, Color4 color)
+        {
+            var sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            sprite.ScaleVec(startTime, 854, 480);
+            sprite.Fade(startTime, endTime, 0, 0.3);
+            sprite.Additive(startTime, endTime);
+            sprite.Color(startTime, color);
         }
     }
 }

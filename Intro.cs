@@ -27,7 +27,7 @@ namespace StorybrewScripts
         private void slideShow(StoryboardLayer layer, string path, double startTime, double beatMultiplier) 
         {
             Vector2 BottomLeft = new Vector2(-107, 240);
-            OsbSprite sprite = layer.CreateSprite(path, OsbOrigin.CentreLeft, BottomLeft);
+            var sprite = layer.CreateSprite(path, OsbOrigin.CentreLeft, BottomLeft);
             var endTime = startTime + Constants.beatLength * beatMultiplier;
             sprite.Scale(startTime, Constants.screenScale);
             sprite.MoveX(startTime, endTime, sprite.PositionAt(startTime).X, sprite.PositionAt(startTime).X - 20 * Constants.screenScale);

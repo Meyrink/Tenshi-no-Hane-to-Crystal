@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class Transition : StoryboardObjectGenerator
+    public class SceneHugEnd : StoryboardObjectGenerator
     {
         [Configurable]
         public int barAmount = 30;
@@ -22,16 +22,27 @@ namespace StorybrewScripts
 
         [Configurable]
         public Color4 color = Color4.Black;
-
-        [Configurable]
-        public float foldRatio = 0.5f;
-
+        
         public override void Generate()
         {
-		    var layer = GetLayer("Transition");
-            transitionIn(layer, 57396, 58078);
-            transitionOut(layer, 58078, 58760);
+            double startTime = 209669;
+            double endTime = 211260;
+
+		    var layer = GetLayer("Kiai 2 End");
+           
+            var card2 = layer.CreateSprite("sb/card/card2.jpg", OsbOrigin.Centre);
+            card2.Fade(startTime, 1);
+            card2.Scale(startTime, Constants.screenScale);
+            card2.Fade(endTime, 0);
+
+            var mask = layer.CreateSprite("sb/card/cardMask.jpg", OsbOrigin.Centre);
+            mask.Scale(startTime, Constants.screenScale);
+            mask.Fade(startTime, startTime + Constants.beatLength * 2, 0.5f, 0);
+            mask.Additive(startTime, startTime + Constants.beatLength * 2f); 
+
+            transitionIn(layer, 210578, 211260);
         }
+
         private void transitionIn(StoryboardLayer layer, double startTime, double endTime)
         {
             double width = 854 / barAmount;
@@ -46,23 +57,6 @@ namespace StorybrewScripts
                 sprite.Fade(relativeStart, 1);
                 sprite.Fade(endTime, 0);
                 sprite.ScaleVec(easing, relativeStart, relativeStart + barDuration, 0, height, width, height);
-                relativeStart += barDuration;
-            }
-        }
-        private void transitionOut(StoryboardLayer layer, double startTime, double endTime)
-        {
-            double width = 854 / barAmount;
-            double height = 480;
-            double barDuration = (endTime - startTime) / barAmount;
-            double relativeStart = startTime;
-
-            for (int i = 1; i <= barAmount; i++)
-            {
-                var sprite = layer.CreateSprite("sb/pixel.png", OsbOrigin.TopLeft, new Vector2((float)(-107 + i * width), (float)0));
-                sprite.Color(startTime, color); 
-                sprite.Fade(relativeStart, 1);
-                sprite.Fade(endTime, 0);
-                sprite.ScaleVec(easing, relativeStart, relativeStart + barDuration, width, height, 0, height);
                 relativeStart += barDuration;
             }
         }

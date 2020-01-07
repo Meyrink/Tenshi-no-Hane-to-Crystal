@@ -38,6 +38,12 @@ namespace StorybrewScripts
         public override void Generate()
         {
 		    var layer = GetLayer("Logo");
+
+            // Temporary White BG
+            var tempBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            tempBg.ScaleVec(6260, 854, 480);
+            tempBg.Fade(6260, 1);
+            tempBg.Fade(7851, 0);
             
             // Background
             var logobg = layer.CreateSprite("sb/logoBg.png", OsbOrigin.Centre);
@@ -48,7 +54,6 @@ namespace StorybrewScripts
             // In between (particles)
             generateParticles(layer, startTime, endTime, "sb/particles/star.png", 30, true);
             generateParticles(layer, startTime, endTime, "sb/particles/dot.png", 30, false);
-
 
             // Foreground
             var logo = layer.CreateSprite("sb/logo.png", OsbOrigin.Centre);
