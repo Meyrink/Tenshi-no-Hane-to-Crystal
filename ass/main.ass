@@ -10,7 +10,7 @@ ScaledBorderAndShadow: yes
 
 [Aegisub Project Garbage]
 Scroll Position: 21
-Active Line: 43
+Active Line: 26
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
@@ -44,7 +44,7 @@ Dialogue: 0,0:02:36.48,0:02:39.89,Default,,0,0,0,,お互い同じこと考えて
 Dialogue: 0,0:02:40.12,0:02:45.80,Default,,0,0,0,,同じ思いで同じ事をしていけたら
 Dialogue: 0,0:02:47.39,0:02:49.44,Default,,0,0,0,,嬉しすぎて
 Dialogue: 0,0:02:51.03,0:02:54.44,Default,,0,0,0,,涙が出ちゃうくらい
-Dialogue: 0,0:02:54.66,0:03:00.57,Default,,0,0,0,,幸せなの
+Dialogue: 0,0:02:54.66,0:02:58.30,Default,,0,0,0,,幸せなの
 Dialogue: 0,0:03:01.94,0:03:05.35,Default,,0,0,0,,抱きしめて抱きしめて
 Dialogue: 0,0:03:05.57,0:03:10.80,Default,,0,0,0,,言葉より今はあなたを感じたい
 Dialogue: 0,0:03:11.03,0:03:16.03,Default,,0,0,0,,それだけで分かり合える

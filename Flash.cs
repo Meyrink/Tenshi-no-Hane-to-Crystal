@@ -47,14 +47,14 @@ namespace StorybrewScripts
             flashOut(142624, 143078, true);
 
             // Kiai 2
-            flashColor(182396, 183533, Color4.SteelBlue);
+            flashOut(182396, 183533, true);
             flashIn(209442, 209669, Color4.SteelBlue);
 
             // Solo
             flashColor(211487, 212624, Color4.LightGoldenrodYellow);
             
             // Inst 3
-            flashOut(266033, 266715, true);
+            // flashOut(266033, 266715, true);
         }
 
         private void flashOut(double startTime, double endTime, bool additive) 

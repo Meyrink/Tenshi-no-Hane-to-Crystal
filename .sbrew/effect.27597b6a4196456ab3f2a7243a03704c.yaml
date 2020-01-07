@@ -1,0 +1,14 @@
+﻿FormatVersion: 6
+Name: "Highlight"
+Script: "Highlight"
+Config:
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "0"
+    DisplayName: "Random seed"
+Layers:
+  2b35cd3c797d41ce8a3d7175e4c73273:
+    Name: "Highlight"
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes

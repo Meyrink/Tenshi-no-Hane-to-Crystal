@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Credit.cs" />
     <Compile Include="Flash.cs" />
+    <Compile Include="Highlight.cs" />
     <Compile Include="InMyHeart.cs" />
     <Compile Include="Intro.cs" />
     <Compile Include="Logo.cs" />
