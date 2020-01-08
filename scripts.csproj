@@ -62,6 +62,7 @@
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
     <Compile Include="MeguruSmile.cs" />
+    <Compile Include="ParticlesInst.cs" />
     <Compile Include="RoomClub.cs" />
     <Compile Include="RoomMeguru.cs" />
     <Compile Include="SceneCinema.cs" />

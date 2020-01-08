@@ -1,0 +1,23 @@
+﻿FormatVersion: 6
+Name: "ParticlesInst"
+Script: "ParticlesInst"
+Config:
+  timeStep:
+    Type: "System.Double"
+    Value: "500"
+  Color1:
+    Type: "OpenTK.Graphics.Color4"
+    Value: "0.9960784,0.8039216,0.8196079,1"
+  Color2:
+    Type: "OpenTK.Graphics.Color4"
+    Value: "0.9960784,0.6862745,0.5686275,1"
+  RandomSeed:
+    Type: "System.Int32"
+    Value: "3"
+    DisplayName: "Random seed"
+Layers:
+  7459dabcc3054dccae762130d36c9e13:
+    Name: ""
+    OsbLayer: Foreground
+    DiffSpecific: No
+    Visible: Yes
