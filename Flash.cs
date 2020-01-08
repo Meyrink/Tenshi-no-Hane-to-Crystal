@@ -17,11 +17,8 @@ namespace StorybrewScripts
         [Configurable]
         public double startOpacity = 0.30;
 
-        StoryboardLayer flash;
         public override void Generate()
         {
-		    flash = GetLayer("Flash");
-
             // Intro
             flashOut(805, 1260, true);
             flashOut(1715, 2169, true);
@@ -60,7 +57,7 @@ namespace StorybrewScripts
 
         private void flashOut(double startTime, double endTime, bool additive) 
         {
-            OsbSprite sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            OsbSprite sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, startOpacity, 0);
             if (additive) sprite.Additive(startTime, endTime);
@@ -68,7 +65,7 @@ namespace StorybrewScripts
 
         private void flashColor(double startTime, double endTime, Color4 color) 
         {
-            OsbSprite sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            OsbSprite sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Color(startTime, color);
             sprite.Fade(startTime, endTime, 0.4, 0);
@@ -77,7 +74,7 @@ namespace StorybrewScripts
 
         private void flashIn(double startTime, double endTime, Color4 color)
         {
-            var sprite = flash.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, 0, 0.3);
             sprite.Additive(startTime, endTime);

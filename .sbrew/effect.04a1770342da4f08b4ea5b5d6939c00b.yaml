@@ -10,8 +10,8 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  7695d42c74db4f02b84db7d8eef854c5:
-    Name: "Flash"
+  ef9ee616b34a4ed5b35674f698321e7a:
+    Name: ""
     OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

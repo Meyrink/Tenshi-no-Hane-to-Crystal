@@ -17,8 +17,6 @@ namespace StorybrewScripts
         StoryboardLayer layer;
         public override void Generate()
         {
-		    layer = GetLayer("Highlight");
-
             // Kiai 1
             ring(98760);ring(100351);ring(100578);ring(102169);ring(102396);ring(104215);ring(104669);ring(105124);ring(118533);
             ring(105578);ring(106033);ring(106715);ring(107624);ring(107851);ring(109442);ring(109669);ring(109896);ring(111260);
@@ -56,7 +54,7 @@ namespace StorybrewScripts
             {
                 if (hitobject.StartTime > startTime - 5 && hitobject.StartTime < startTime + 5)
                 {
-                    var sprite = layer.CreateSprite("sb/particles/ring.png", OsbOrigin.Centre, hitobject.Position);
+                    var sprite = GetLayer("").CreateSprite("sb/particles/ring.png", OsbOrigin.Centre, hitobject.Position);
                     sprite.Fade(hitobject.StartTime, hitobject.StartTime + Constants.beatLength, 1, 0);
                     sprite.Scale(hitobject.StartTime, hitobject.StartTime + Constants.beatLength, 0.4, 0.9);
                     sprite.Additive(hitobject.StartTime, hitobject.StartTime + Constants.beatLength);
@@ -71,7 +69,7 @@ namespace StorybrewScripts
             {
                 if (hitobject.StartTime > startTime - 5 && hitobject.StartTime < startTime + 5)
                 {
-                    var sprite = layer.CreateSprite("sb/particles/light.png", OsbOrigin.Centre, hitobject.Position);
+                    var sprite = GetLayer("").CreateSprite("sb/particles/light.png", OsbOrigin.Centre, hitobject.Position);
                     sprite.Fade(hitobject.StartTime, hitobject.StartTime + Constants.beatLength, 0.7, 0);
                     sprite.Scale(hitobject.StartTime, hitobject.StartTime + Constants.beatLength, 1, 0.5);
                     sprite.Additive(hitobject.StartTime, hitobject.StartTime + Constants.beatLength);

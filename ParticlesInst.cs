@@ -38,12 +38,13 @@ namespace StorybrewScripts
         {
             for (int i = 0; i < numParticles; i++) 
             {
-                double vX = Random(waveLength) - waveLength/2;
+                // Y = A * Sin(X) + OriginOffset
+                double vX = Random(waveLength) - waveLength/2; 
                 double vY = Random(waveHeight) - waveHeight/2;
                 double scale = Random(2, 6);
 
                 float x = (float) Random(Constants.xFloor - 150, Constants.xCeil - 10);
-                float y = (float) (waveHeight * (Math.Sin( (x + vX) / waveHeight)) + vY + yPos); // Sine equation
+                float y = (float) (waveHeight * (Math.Sin( (x + vX) / waveHeight)) + vY + yPos); // Sine Equation
 
                 var sprite = GetLayer("").CreateSprite(path, OsbOrigin.Centre, new Vector2(x, y)); 
 
@@ -53,10 +54,10 @@ namespace StorybrewScripts
                 sprite.Color(startTime, Colors[Random(Colors.Length)]);
                 
 
-                for (double j = startTime; j < endTime - timeStep; j += timeStep) // Sine wave movement
+                for (double j = startTime; j < endTime - timeStep; j += timeStep)
                 {
                     x += (float) (waveLength/20);
-                    y =  (float) (waveHeight * (Math.Sin( (x + vX) / waveHeight)) + vY + yPos); // Sine equation
+                    y =  (float) (waveHeight * (Math.Sin( (x + vX) / waveHeight)) + vY + yPos); // Sine Equation
 
                     sprite.Move(j, j + timeStep, sprite.PositionAt(j), x, y);
 

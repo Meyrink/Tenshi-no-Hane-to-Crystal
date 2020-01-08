@@ -73,7 +73,6 @@
     <Compile Include="SceneHug.cs" />
     <Compile Include="SceneHugEnd.cs" />
     <Compile Include="SceneThighs.cs" />
-    <Compile Include="Shadow.cs" />
     <Compile Include="Solo.cs" />
     <Compile Include="Transition.cs" />
     <Compile Include="scriptslibrary/Constants.cs" />

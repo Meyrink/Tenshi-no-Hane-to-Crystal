@@ -182,30 +182,5 @@ namespace StorybrewScripts
                 }
             }
         }
-
-        private void thanos(string texturePath, double startTime, double endTime, Vector2 letterPos)
-        {
-            Bitmap textBitmap = GetMapsetBitmap(texturePath);
-            for (int x = 0; x < textBitmap.Width ; x += 2) 
-            {
-                for (int y = 0; y < textBitmap.Height ; y += 2) 
-                {
-                    Vector2 spritePos = new Vector2((float)x, (float)y - textBitmap.Height/2);
-                    spritePos = Vector2.Multiply(spritePos, fontscale);
-                    Vector2 center = new Vector2(320, 240);
-                    Vector2 distance = Vector2.Subtract(center, (spritePos + letterPos));
-                    Color pixelColor = textBitmap.GetPixel(x, y);
-
-                    if (pixelColor.A > 0) 
-                    {
-                        var sprite = layer.CreateSprite("sb/particles/dot.png", OsbOrigin.Centre, spritePos + letterPos);
-                        sprite.Scale(startTime, 0.075);
-                        sprite.Fade(startTime, startTime, 0, 0.2);
-                        sprite.Color(startTime, pixelColor);
-                        sprite.Move(Random(startTime, endTime), Random(startTime, endTime), sprite.PositionAt(startTime), Vector2.Add(sprite.PositionAt(startTime), distance));
-                    }
-                }
-            }
-        }
     }
 }
