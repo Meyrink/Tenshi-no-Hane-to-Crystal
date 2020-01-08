@@ -75,9 +75,9 @@ namespace StorybrewScripts
             inHeart.Fade(endTime, 0);
 
             // Inner Heart
-            heart(layer, 97169, heartColor1, false);
+            heart(layer, 97169, Color4.White, false);
             heart(layer, 97624, heartColor2, false);
-            heart(layer, 98078, Color4.White, true);
+            heart(layer, 98078, heartColor1, true);
 
             // Particles
             generateParticles(layer, 94442, 97169, "sb/particles/star.png", 30, true);

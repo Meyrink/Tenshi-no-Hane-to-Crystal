@@ -37,6 +37,7 @@ namespace StorybrewScripts
             flashOut(22169, 22396, true); 
 
             // Kiai 1
+            flashIn(98533, 98760, Color4.LightSkyBlue);
             flashColor(98760, 100351, Color4.LightSkyBlue);
             flashIn(125805, 126033, Color4.LightSkyBlue);
 

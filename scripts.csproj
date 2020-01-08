@@ -57,6 +57,7 @@
     <Compile Include="Highlight.cs" />
     <Compile Include="InMyHeart.cs" />
     <Compile Include="Intro.cs" />
+    <Compile Include="LensFlare.cs" />
     <Compile Include="Logo.cs" />
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
