@@ -8,6 +8,9 @@ Config:
   fontSize:
     Type: "System.Int32"
     Value: "120"
+  fontscale:
+    Type: "System.Single"
+    Value: "0.5"
   fontstyle:
     Type: "System.Int32"
     Value: "1"

@@ -13,7 +13,6 @@ namespace StorybrewScripts
         public static float height = 480;
 
         public static double screenScale = 480.0 / 720;
-        public static float fontScale = 0.5f;
     }
 
     public class Helpers 

@@ -22,6 +22,9 @@ namespace StorybrewScripts
         public int fontSize = 120;
 
         [Configurable]
+        public float fontscale = 0.5f;
+
+        [Configurable]
         public FontStyle fontstyle = FontStyle.Regular;
 
         [Configurable]
@@ -40,7 +43,7 @@ namespace StorybrewScripts
         public Color4 heartColor2 = Color4.Orange; //#B3DFFF
 
         StoryboardLayer layer;
-
+        
         public override void Generate()
         {
 		    layer = GetLayer("In My Heart");
@@ -145,8 +148,8 @@ namespace StorybrewScripts
                     foreach (var letter in line)
                     {
                         var texture = font.GetTexture(letter.ToString());
-                        lineWidth += texture.BaseWidth * Constants.fontScale;
-                        lineHeight = Math.Max(lineHeight, texture.BaseHeight * Constants.fontScale);
+                        lineWidth += texture.BaseWidth * fontscale;
+                        lineHeight = Math.Max(lineHeight, texture.BaseHeight * fontscale);
                     }
 
                     var letterX = 320 - lineWidth * 0.5f;
@@ -157,7 +160,7 @@ namespace StorybrewScripts
                         if (!texture.IsEmpty)
                         {
                             var position = new Vector2(letterX, (float)(letterY - lineHeight * 0.5)) // Moving Lyics To Y center
-                                + texture.OffsetFor(OsbOrigin.Centre) * Constants.fontScale;
+                                + texture.OffsetFor(OsbOrigin.Centre) * fontscale;
                             
                             var distance = Vector2.Subtract(position, center); // Distance between each letter and center
 
@@ -165,15 +168,15 @@ namespace StorybrewScripts
                             // Move away from center
                             sprite.MoveY(subtitleLine.StartTime, position.Y);
                             sprite.MoveX(subtitleLine.StartTime, subtitleLine.EndTime, position.X, position.X + distance.X * 0.25); 
-                            sprite.Scale(subtitleLine.StartTime, Constants.fontScale);
+                            sprite.Scale(subtitleLine.StartTime, fontscale);
                             sprite.Fade(subtitleLine.StartTime, subtitleLine.StartTime + Constants.beatLength * 0.25, 0, 1);
                             // Move back to center
                             distance = Vector2.Subtract(sprite.PositionAt(subtitleLine.EndTime), center);
                             sprite.MoveX(subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.25, sprite.PositionAt(subtitleLine.EndTime).X, Vector2.Subtract(sprite.PositionAt(subtitleLine.EndTime), distance).X); 
                             sprite.Fade(subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.25, 1, 0);
-                            sprite.Scale(subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.25, Constants.fontScale, 0);
+                            sprite.Scale(subtitleLine.EndTime, subtitleLine.EndTime + Constants.beatLength * 0.25, fontscale, 0);
                         }
-                        letterX += texture.BaseWidth * Constants.fontScale;
+                        letterX += texture.BaseWidth * fontscale;
                     }
                     letterY += lineHeight;
                 }
@@ -188,7 +191,7 @@ namespace StorybrewScripts
                 for (int y = 0; y < textBitmap.Height ; y += 2) 
                 {
                     Vector2 spritePos = new Vector2((float)x, (float)y - textBitmap.Height/2);
-                    spritePos = Vector2.Multiply(spritePos, Constants.fontScale);
+                    spritePos = Vector2.Multiply(spritePos, fontscale);
                     Vector2 center = new Vector2(320, 240);
                     Vector2 distance = Vector2.Subtract(center, (spritePos + letterPos));
                     Color pixelColor = textBitmap.GetPixel(x, y);
