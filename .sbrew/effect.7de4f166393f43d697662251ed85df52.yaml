@@ -1,5 +1,5 @@
 ﻿FormatVersion: 6
-Name: "LensFlare 1"
+Name: "LensFlare"
 Script: "LensFlare"
 Config:
   RandomSeed:
