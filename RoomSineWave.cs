@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class ParticlesInst : StoryboardObjectGenerator
+    public class RoomSineWave : StoryboardObjectGenerator
     {
         [Configurable]
         public static Color4 Color1 = Color4.LightPink;
@@ -27,11 +27,11 @@ namespace StorybrewScripts
         public override void Generate()
         {
             // Inst 1
-            generateWave("sb/particles/dotGlow.png", 50, 8533, 21260, 120, 40, 50);
-            generateWave("sb/particles/dotGlow.png", 50, 8533, 21260, 120, 40, 480-50);
+            generateWave("sb/particles/tinyFloat.png", 70, 8533, 21260, 120, 40, 50);
+            generateWave("sb/particles/tinyFloat.png", 70, 8533, 21260, 120, 40, 480-50);
             // Inst 2
-            generateWave("sb/particles/dotGlow.png", 50, 128533, 141260, 120, 40, 50);
-            generateWave("sb/particles/dotGlow.png", 50, 128533, 141260, 120, 40, 480-50);
+            generateWave("sb/particles/tinyFloat.png", 70, 128533, 141260, 120, 40, 50);
+            generateWave("sb/particles/tinyFloat.png", 70, 128533, 141260, 120, 40, 480-50);
         }
 
         private void generateWave(string path, int numParticles, double startTime, double endTime, double waveLength, double waveHeight, double yPos)
@@ -50,7 +50,7 @@ namespace StorybrewScripts
 
                 sprite.Fade(startTime, startTime + timeStep, 0, 0.4);
                 sprite.Additive(startTime, endTime);
-                sprite.Scale(startTime, scale/10);
+                sprite.Scale(startTime, scale/7);
                 sprite.Color(startTime, Colors[Random(Colors.Length)]);
                 
 

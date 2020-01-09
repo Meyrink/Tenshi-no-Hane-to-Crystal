@@ -14,20 +14,54 @@ namespace StorybrewScripts
 {
     public class SceneHeartParticles : StoryboardObjectGenerator
     {
-        [Configurable]
-        public static Color4 Color1 = Color4.LightSkyBlue;
+        static Color4 Color1 = new Color4(215, 178, 211, 1);
 
-        [Configurable]
-        public static Color4 Color2 = Color4.LightSkyBlue;
+        static Color4 Color2 = new Color4(90, 97, 151, 1);
+        
+        static Color4 Color3 = new Color4(153, 174, 201, 1);
 
-        Color4[] Colors = { Color1,  Color2 };
+        Color4[] Colors = { Color1, Color2, Color3 };
 
         public override void Generate()
         {
-            upwardParticles(227851, 241487, 200, 150, 20); //Slow and smal
-            upwardParticles(227851, 241487, 200, 75, 10); // Fast and big
+            upwardParticles(227851, 241033, 200, 150, 20);
+            upwardParticles(227851, 241033, 100, 75, 10);
+
+            sparkle(241942, 264215, 70, "sb/particles/circleb.png");
         }
 
+        private void sparkle(double startTime, double endTime, int particleNum, string path)
+        {
+            double opacity = 0.3;
+            double timeStep = (endTime - startTime) / particleNum;
+            double relativeStart = startTime;
+            double duration = Constants.beatLength * 6;
+            
+            for (int i = 0; i < particleNum; i++)
+            {
+                double scale = Random(2, 6);
+                Vector2 position = new Vector2(Random(-107, 747), Random(0, 480));
+                Vector2 newPosition = Vector2.Add(position , new Vector2(Random(-20, 20), Random(-20, 20)));
+                
+                var sprite = GetLayer("").CreateSprite(path, OsbOrigin.Centre, position);
+                sprite.Scale(relativeStart, scale/50);
+                sprite.Color(relativeStart, Colors[Random(Colors.Length)]);
+                sprite.Additive(relativeStart, relativeStart + duration);
+
+                sprite.Fade(relativeStart, relativeStart + 454, 0, opacity);
+                sprite.Move(relativeStart, relativeStart + duration, position, newPosition);
+                sprite.Fade(relativeStart + duration - 454, relativeStart + duration, opacity, 0);
+
+                // Global Fade out
+                if (sprite.OpacityAt(endTime) > 0)
+                {
+                    sprite.Fade(endTime, endTime + Constants.beatLength, sprite.OpacityAt(endTime), 0);
+                    break;
+                }
+                relativeStart += timeStep;
+            }
+            
+        }
         private void upwardParticles(double startTime, double endTime, int particleNum, int speed, double scaling)
         {
             double duration = endTime - startTime;
@@ -38,7 +72,8 @@ namespace StorybrewScripts
             for (int i = 0; i < particleNum; i++)
             {
                 double scale = Random(2, 4);
-                Vector2 initialPos = new Vector2(Random(-107, 747), Random(240, 480));
+                Vector2 initialPos = new Vector2(Random(-107, 747), Random(120 * 3, 480 + 10));
+
                 var particle = GetLayer("").CreateSprite("sb/particles/tinyFloat.png", OsbOrigin.Centre, initialPos);
                 particle.Additive(relativeStart, relativeStart + moveDuration);
                 particle.Scale(relativeStart, scale/scaling);
@@ -46,13 +81,16 @@ namespace StorybrewScripts
                 particle.MoveY(relativeStart, relativeStart + moveDuration, particle.PositionAt(relativeStart).Y, -10);
 
                 // Yeet if reach offscreen at Y
-                if(particle.PositionAt(relativeStart + moveDuration).Y < -5 ) particle.Fade(relativeStart + moveDuration, relativeStart + moveDuration + timeStep, 1, 0);
+                if(particle.PositionAt(relativeStart + moveDuration).Y < -5 )
+                {
+                    particle.Fade(relativeStart + moveDuration, relativeStart + moveDuration + timeStep, 1, 0);
+                }
                 
-                particle.Fade(endTime, endTime + Constants.beatLength, particle.OpacityAt(endTime), 0); // Global Fadeout
+                // Global Fadeout
+                particle.Fade(endTime, endTime + Constants.beatLength, particle.OpacityAt(endTime), 0); 
                 
                 relativeStart += timeStep;
             }
-            
         }
     }
 }

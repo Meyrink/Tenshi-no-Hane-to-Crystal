@@ -1,22 +1,22 @@
 ﻿FormatVersion: 6
-Name: "ParticlesInst"
-Script: "ParticlesInst"
+Name: "RoomSineWave"
+Script: "RoomSineWave"
 Config:
   timeStep:
     Type: "System.Double"
     Value: "500"
   Color1:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.9960784,0.8039216,0.8196079,1"
+    Value: "1,0.7137255,0.7568628,1"
   Color2:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.9960784,0.6862745,0.5686275,1"
+    Value: "0.5294118,0.8078431,0.9803922,1"
   RandomSeed:
     Type: "System.Int32"
-    Value: "3"
+    Value: "0"
     DisplayName: "Random seed"
 Layers:
-  7459dabcc3054dccae762130d36c9e13:
+  a412464aa96a42f995472444c8fce0a9:
     Name: ""
     OsbLayer: Foreground
     DiffSpecific: No
