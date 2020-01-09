@@ -1,14 +1,14 @@
 ﻿FormatVersion: 6
-Name: "LensFlare"
-Script: "LensFlare"
+Name: "SceneHandHoldParticles"
+Script: "SceneHandHoldParticles"
 Config:
   RandomSeed:
     Type: "System.Int32"
-    Value: "0"
+    Value: "2"
     DisplayName: "Random seed"
 Layers:
-  5e00df34acef42239d3a8514b7886b5b:
+  09d1d7ff2e134c378db24dcbbb29bc9d:
     Name: ""
-    OsbLayer: Background
+    OsbLayer: Foreground
     DiffSpecific: No
     Visible: Yes

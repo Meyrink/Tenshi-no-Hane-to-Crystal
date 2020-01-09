@@ -69,10 +69,12 @@
     <Compile Include="SceneDesk.cs" />
     <Compile Include="SceneHandHold.cs" />
     <Compile Include="SceneHandHoldEnd.cs" />
+    <Compile Include="SceneHandHoldParticles.cs" />
     <Compile Include="SceneHeart.cs" />
     <Compile Include="SceneHeartParticles.cs" />
     <Compile Include="SceneHug.cs" />
     <Compile Include="SceneHugEnd.cs" />
+    <Compile Include="SceneHugParticles.cs" />
     <Compile Include="SceneThighs.cs" />
     <Compile Include="Solo.cs" />
     <Compile Include="Transition.cs" />

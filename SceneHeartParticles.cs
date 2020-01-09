@@ -28,6 +28,39 @@ namespace StorybrewScripts
             upwardParticles(227851, 241033, 100, 75, 10);
 
             sparkle(241942, 264215, 70, "sb/particles/circleb.png");
+            glow(241942, 264215, 35, "sb/particles/light.png");
+        }
+
+        private void glow(double startTime, double endTime, int particleNum, string path)
+        {
+            double opacity = 0.1;
+            double timeStep = (endTime - startTime) / particleNum;
+            double relativeStart = startTime;
+            double duration = Constants.beatLength * 8;
+            
+            for (int i = 0; i < particleNum; i++)
+            {
+                double scale = Random(2, 6);
+                Vector2 position = new Vector2(Random(-107, 747), Random(0, 480));
+                Vector2 newPosition = Vector2.Add(position , new Vector2(Random(-50, 50), Random(-50, 50)));
+                
+                var sprite = GetLayer("").CreateSprite(path, OsbOrigin.Centre, position);
+                sprite.Scale(relativeStart, scale/5);
+                sprite.Color(relativeStart, Colors[Random(Colors.Length)]);
+                sprite.Additive(relativeStart, relativeStart + duration);
+
+                sprite.Fade(relativeStart, relativeStart + 454, 0, opacity);
+                sprite.Move(relativeStart, relativeStart + duration, position, newPosition);
+                sprite.Fade(relativeStart + duration - 454, relativeStart + duration, opacity, 0);
+
+                // Global Fade out
+                if (sprite.OpacityAt(endTime) > 0)
+                {
+                    sprite.Fade(endTime, endTime + Constants.beatLength, sprite.OpacityAt(endTime), 0);
+                    break;
+                }
+                relativeStart += timeStep;
+            }
         }
 
         private void sparkle(double startTime, double endTime, int particleNum, string path)
@@ -60,7 +93,6 @@ namespace StorybrewScripts
                 }
                 relativeStart += timeStep;
             }
-            
         }
         private void upwardParticles(double startTime, double endTime, int particleNum, int speed, double scaling)
         {
