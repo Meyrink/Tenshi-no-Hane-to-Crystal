@@ -22,7 +22,7 @@ namespace StorybrewScripts
             // Credit bar
             double startTime = 9215;
             double endTime = 14896;
-            var creditBar = layer.CreateSprite("sb/creditBar.png", OsbOrigin.Centre, CreditPos);
+            var creditBar = layer.CreateSprite("sb/credits/creditBar.png", OsbOrigin.Centre, CreditPos);
             creditBar.ScaleVec(startTime, startTime + Constants.beatLength * 0.5f, 0, Constants.screenScale, Constants.screenScale, Constants.screenScale);
             creditBar.ScaleVec(endTime, endTime + Constants.beatLength * 0.5f, Constants.screenScale, Constants.screenScale, 0, Constants.screenScale);
             creditBar.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
@@ -31,7 +31,7 @@ namespace StorybrewScripts
             // Sb & Map credits
             startTime = 9669;
             endTime = 12396;
-            var credit = layer.CreateSprite("sb/credit.png", OsbOrigin.Centre, CreditPos);
+            var credit = layer.CreateSprite("sb/credits/credit.png", OsbOrigin.Centre, CreditPos);
             credit.Scale(startTime, Constants.screenScale);
             credit.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
             credit.Fade(endTime, endTime + Constants.beatLength * 0.5f, 1, 0);
@@ -39,7 +39,7 @@ namespace StorybrewScripts
             // Gogo *:･٩(´・ω・)۶*:･
             startTime = 12851;
             endTime = 14669;
-            var owo = layer.CreateSprite("sb/owo.png", OsbOrigin.Centre, CreditPos);
+            var owo = layer.CreateSprite("sb/credits/owo.png", OsbOrigin.Centre, CreditPos);
             owo.Scale(startTime, Constants.screenScale);
             owo.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
             owo.Fade(endTime, endTime + Constants.beatLength * 0.5f, 1, 0);

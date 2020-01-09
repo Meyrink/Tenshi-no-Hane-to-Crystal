@@ -2,9 +2,6 @@
 Name: "Flash"
 Script: "Flash"
 Config:
-  startOpacity:
-    Type: "System.Double"
-    Value: "0.3"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

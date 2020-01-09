@@ -14,71 +14,85 @@ namespace StorybrewScripts
 {
     public class Flash : StoryboardObjectGenerator
     {
-        [Configurable]
-        public double startOpacity = 0.30;
-
         public override void Generate()
         {
             // Intro
-            flashOut(805, 1260, true);
-            flashOut(1715, 2169, true);
-            flashOut(2624, 3078, true);
-            flashOut(3533, 3987, true);
-            flashOut(4442, 6260, true);
-            flashOut(6260, 7169, true);
+            flashOut(805, 1260);
+            flashOut(1715, 2169);
+            flashOut(2624, 3078);
+            flashOut(3533, 3987);
+            flashOut(4442, 6260);
+            flashOut(6260, 7169);
 
             // Inst 1
-            flashOut(7851, 8305, true);
+            flashOut(7851, 8305);
 
             // Verse 1
-            flashOut(22169, 22396, true); 
+            flashOut(22169, 22396); 
 
             // Kiai 1
-            flashIn(98533, 98760, Color4.LightSkyBlue);
-            flashColor(98760, 100351, Color4.LightSkyBlue);
-            flashIn(125805, 126033, Color4.LightSkyBlue);
+            flashInColor(98533, 98760, Color4.LightSkyBlue);
+            flashOutColor(98760, 100351, Color4.LightSkyBlue);
+            flashInColor(125805, 126033, Color4.LightSkyBlue);
 
             // Inst 2
-            flashOut(127851, 128305, true);
+            flashOut(127851, 128305);
 
             // Verse 3
-            flashOut(142624, 143078, true);
+            flashOut(142624, 143078);
 
             // Kiai 2
-            flashOut(182396, 183533, true);
-            flashIn(209442, 209669, Color4.SteelBlue);
+            flashOut(182396, 183533);
+            flashInColor(209442, 209669, Color4.SteelBlue);
 
             // Solo
-            flashColor(211487, 212624, Color4.LightGoldenrodYellow);
+            flashOutColor(211487, 212624, Color4.LightGoldenrodYellow);
+            cinematicColor(213305, Color4.LightGoldenrodYellow, 3);
+            cinematicColor(216942, Color4.LightGoldenrodYellow, 3);
+            cinematicColor(219896, Color4.AliceBlue, 2);
+            cinematicColor(222624, Color4.CadetBlue, 3);
             
             // Inst 3
-            // flashOut(266033, 266715, true);
+            // flashOut(266033, 266715);
         }
 
-        private void flashOut(double startTime, double endTime, bool additive) 
+        private void flashOut(double startTime, double endTime) 
         {
-            OsbSprite sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
-            sprite.Fade(startTime, endTime, startOpacity, 0);
-            if (additive) sprite.Additive(startTime, endTime);
-        }
-
-        private void flashColor(double startTime, double endTime, Color4 color) 
-        {
-            OsbSprite sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
-            sprite.ScaleVec(startTime, 854, 480);
-            sprite.Color(startTime, color);
-            sprite.Fade(startTime, endTime, 0.4, 0);
+            sprite.Fade(startTime, endTime, 0.3, 0);
             sprite.Additive(startTime, endTime);
         }
 
-        private void flashIn(double startTime, double endTime, Color4 color)
+        private void flashOutColor(double startTime, double endTime, Color4 color) 
+        {
+            var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            sprite.ScaleVec(startTime, 854, 480);
+            sprite.Color(startTime, color);
+            sprite.Fade(startTime, endTime, 0.3, 0);
+            sprite.Additive(startTime, endTime);
+        }
+
+        private void flashInColor(double startTime, double endTime, Color4 color)
         {
             var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
             sprite.Fade(startTime, endTime, 0, 0.3);
             sprite.Additive(startTime, endTime);
             sprite.Color(startTime, color);
+        }
+
+        private void cinematicColor(double startTime, Color4 color, double duration)
+        {
+            var fadeTime = startTime + Constants.beatLength * duration;
+            var endTime = fadeTime + Constants.beatLength * duration;
+            double opacity = 0.1;
+            var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+            sprite.ScaleVec(startTime, 854, 480);
+            sprite.Additive(startTime, endTime);
+            sprite.Color(startTime, color);
+            sprite.Fade(startTime, fadeTime, 0, opacity);
+            sprite.Fade(fadeTime, endTime, opacity, 0);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace StorybrewScripts
                 Vector2 newPosition = Vector2.Add(position , new Vector2(Random(-50, 50), Random(-50, 50)));
                 
                 var sprite = GetLayer("").CreateSprite(path, OsbOrigin.Centre, position);
-                sprite.Scale(relativeStart, scale/5);
+                sprite.Scale(relativeStart, scale/8);
                 sprite.Color(relativeStart, Colors[Random(Colors.Length)]);
                 sprite.Additive(relativeStart, relativeStart + duration);
 
