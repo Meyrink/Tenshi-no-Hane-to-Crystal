@@ -13,7 +13,7 @@ Config:
     Value: "0.9"
   sdScale:
     Type: "System.Single"
-    Value: "0.57"
+    Value: "0.65"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

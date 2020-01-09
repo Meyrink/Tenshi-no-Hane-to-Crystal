@@ -70,6 +70,7 @@
     <Compile Include="SceneHandHold.cs" />
     <Compile Include="SceneHandHoldEnd.cs" />
     <Compile Include="SceneHeart.cs" />
+    <Compile Include="SceneHeartParticles.cs" />
     <Compile Include="SceneHug.cs" />
     <Compile Include="SceneHugEnd.cs" />
     <Compile Include="SceneThighs.cs" />

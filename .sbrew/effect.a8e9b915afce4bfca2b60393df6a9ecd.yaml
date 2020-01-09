@@ -67,7 +67,7 @@ Config:
     Value: "0.8235294,0.5156083,0.4136292,1"
   heartColor1:
     Type: "OpenTK.Graphics.Color4"
-    Value: "1,0.9775999,0.6800001,1"
+    Value: "0.9843137,0.8431373,0.7490196,1"
   heartColor2:
     Type: "OpenTK.Graphics.Color4"
     Value: "0.7021185,0.8759947,1,1"

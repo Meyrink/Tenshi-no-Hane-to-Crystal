@@ -49,8 +49,8 @@ namespace StorybrewScripts
             bgB.Fade(endTime, endTime + Constants.beatLength * 0.5f, bgB.OpacityAt(endTime), 0);
 
             // Orange Background for chibi scenes
-            var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
-            foldInOut(sdbg, startTime, endTime, sdbgScale);
+            // var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
+            // foldInOut(sdbg, startTime, endTime, sdbgScale);
 
             // Chibi Scenes
             fadeInOut(layer, "sb/sd/ClubSD1.jpg", 8987, sdScale);
