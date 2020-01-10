@@ -14,7 +14,6 @@ namespace StorybrewScripts
 {
     public class Highlight : StoryboardObjectGenerator
     {
-        StoryboardLayer layer;
         public override void Generate()
         {
             // Kiai 1

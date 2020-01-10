@@ -22,7 +22,7 @@ namespace StorybrewScripts
             thighs.Scale(142624, 143078, 1, Constants.screenScale);
             thighs.Rotate(OsbEasing.OutBack, 142624, 143078, MathHelper.DegreesToRadians(-15), 0);
             thighs.Fade(142624, 1);
-            thighs.Fade(182396, 0); // To fade for transition
+            thighs.Fade(178078, 0); // To fade for transition
 
             // Meguru Expressions
             Vector2 face = Helpers.locationHandler(299f, 199f);
@@ -32,7 +32,7 @@ namespace StorybrewScripts
             Helpers.moveScaleAndFade("sb/scenes/thighsLayer4.jpg", 163533, 167396, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/thighsLayer3.jpg", 167169, 171033, face.X, face.Y, layer);
             OsbSprite thighsfinal = Helpers.moveScaleAndFadeIn("sb/scenes/thighsLayer2.jpg", 170805, 170805, face.X, face.Y, layer);
-            thighsfinal.Fade(182396, 0); // To fade for transition
+            thighsfinal.Fade(178078, 0); // To fade for transition
         }
     }
 }

@@ -16,4 +16,4 @@ Style: Default,Arial,20,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:02:58.30,0:03:00.57,Default,,0,0,0,,幸せなの
+Dialogue: 0,0:02:58.30,0:03:00.57,Default,,0,0,0,,Happiness

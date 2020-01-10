@@ -1,6 +1,6 @@
 ﻿FormatVersion: 6
-Name: "InMyHeart"
-Script: "InMyHeart"
+Name: "ShiawaseNano"
+Script: "ShiawaseNano"
 Config:
   fontName:
     Type: "System.String"
@@ -20,7 +20,7 @@ Config:
       Italic: "2"
       Underline: "4"
       Strikeout: "8"
-  heartEasing:
+  easing:
     Type: "System.Int32"
     Value: "17"
     AllowedValues:
@@ -61,22 +61,16 @@ Config:
       InOutBounce: "34"
   bgColor:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.9960784,0.7330318,0.5979516,1"
+    Value: "0.8484232,0.6916715,0.7741724,1"
   fontColor:
     Type: "OpenTK.Graphics.Color4"
-    Value: "0.8235294,0.5156083,0.4136292,1"
-  heartColor1:
-    Type: "OpenTK.Graphics.Color4"
-    Value: "0.9843137,0.8431373,0.7490196,1"
-  heartColor2:
-    Type: "OpenTK.Graphics.Color4"
-    Value: "0.7021185,0.8759947,1,1"
+    Value: "0.4901941,0.3873562,0.4422031,1"
   RandomSeed:
     Type: "System.Int32"
-    Value: "6"
+    Value: "7"
     DisplayName: "Random seed"
 Layers:
-  fe64e48853d44099a8b3934665e0e9f6:
+  54dc60118fbe4d7d9850492ca1b75375:
     Name: ""
     OsbLayer: Background
     DiffSpecific: No

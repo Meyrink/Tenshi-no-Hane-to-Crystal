@@ -76,6 +76,7 @@
     <Compile Include="SceneHugEnd.cs" />
     <Compile Include="SceneHugParticles.cs" />
     <Compile Include="SceneThighs.cs" />
+    <Compile Include="ShiawaseNano.cs" />
     <Compile Include="Solo.cs" />
     <Compile Include="Transition.cs" />
     <Compile Include="scriptslibrary/Constants.cs" />
