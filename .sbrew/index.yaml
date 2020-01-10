@@ -1,7 +1,7 @@
 ﻿FormatVersion: 6
 MapsetPath: "D:/Games/osu!/osu!/Songs/Tenshi no Hane to Crystal"
-BeatmapId: 2260731
-BeatmapName: "Forever"
+BeatmapId: 0
+BeatmapName: ""
 Assemblies:
 Layers:
   - "73568c14bae04478917f574a2d7ec515"
@@ -21,13 +21,12 @@ Layers:
   - "f6a0717ad13f457c83c9680b953048f2"
   - "5169e1ec8f03478b96671c40cb70fe6d"
   - "312b7044b9044dd3b4a1f30bb2583228"
+  - "fee1c378fecb4ee1bd99cf81afbb29f9"
   - "b4095d7be6254b60a7c3e1b16ba0c9aa"
-  - "fee6fd9bf8634a1b96dc87cfed3c190f"
   - "a412464aa96a42f995472444c8fce0a9"
   - "09d1d7ff2e134c378db24dcbbb29bc9d"
   - "021e14e6c2dd4df1ba97bedd671d122b"
   - "05e8a5e1e28849c6ab3bf5c502724ff9"
-  - "e91d3c8dd81944799f9e570a4d010df6"
   - "ef9ee616b34a4ed5b35674f698321e7a"
   - "63e721921751488e83eb48b074d8ffe4"
   - "04ea7781ebd3492a94c2c50b8efc70d2"
