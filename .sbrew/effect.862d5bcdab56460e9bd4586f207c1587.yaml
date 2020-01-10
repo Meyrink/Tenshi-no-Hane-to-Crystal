@@ -1,5 +1,5 @@
 ﻿FormatVersion: 6
-Name: "Outro"
+Name: "MeguruSmile"
 Script: "MeguruSmile"
 Config:
   startTime:
@@ -13,8 +13,8 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  b4095d7be6254b60a7c3e1b16ba0c9aa:
-    Name: "Outro"
+  c796a15a7b1e408e8dd4e1676f4ae3b9:
+    Name: ""
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes

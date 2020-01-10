@@ -20,12 +20,12 @@ namespace StorybrewScripts
         public int frameCount = 47;
         public override void Generate()
         {
-		    var layer = GetLayer("Outro");
+		    var layer = GetLayer("");
 
             var tempBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             tempBg.ScaleVec(282851, 854, 480);
             
-            tempBg.Fade(280124, 280578, 0, 1);
+            tempBg.Fade(280124, 280351, 0, 1);
             tempBg.Fade(280805, 0);
 
             tempBg.Fade(282851, 1);

@@ -37,7 +37,7 @@ namespace StorybrewScripts
 
         public override void Generate()
         {
-		    var layer = GetLayer("Logo");
+		    var layer = GetLayer("");
 
             // Temporary White BG
             var tempBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);

@@ -31,9 +31,9 @@ namespace StorybrewScripts
             flashOut(22169, 22396); 
 
             // Kiai 1
-            flashInColor(98533, 98760, Color4.LightSkyBlue);
+            flashInColor(0.3f, 98533, 98760, Color4.LightSkyBlue);
             flashOutColor(98760, 100351, Color4.LightSkyBlue);
-            flashInColor(125805, 126033, Color4.LightSkyBlue);
+            flashInColor(0.3f, 125805, 126033, Color4.LightSkyBlue);
 
             // Inst 2
             flashOut(127851, 128305);
@@ -42,9 +42,9 @@ namespace StorybrewScripts
             flashOut(142624, 143078);
 
             // Kiai 2
-            flashInColor(182169, 182396, Color4.SteelBlue);
+            flashInColor(0.3f, 182169, 182396, Color4.SteelBlue);
             flashOut(182396, 183533);
-            flashInColor(209442, 209669, Color4.SteelBlue);
+            flashInColor(0.3f, 209442, 209669, Color4.SteelBlue);
 
             // Solo
             flashOutColor(211487, 212624, Color4.LightGoldenrodYellow);
@@ -54,7 +54,7 @@ namespace StorybrewScripts
             cinematicColor(222624, Color4.CadetBlue, 3);
             
             // Kiaot 3 to Inst 3
-            flashInColor(264669, 266033, Color4.CadetBlue);
+            flashInColor(0.5f, 264669, 266033, Color4.CadetBlue);
             flashOutColor(266033, 266715, Color4.LightSkyBlue);
         }
 
@@ -75,11 +75,11 @@ namespace StorybrewScripts
             sprite.Additive(startTime, endTime);
         }
 
-        private void flashInColor(double startTime, double endTime, Color4 color)
+        private void flashInColor(float opacity, double startTime, double endTime, Color4 color)
         {
             var sprite = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             sprite.ScaleVec(startTime, 854, 480);
-            sprite.Fade(startTime, endTime, 0, 0.3);
+            sprite.Fade(startTime, endTime, 0, opacity);
             sprite.Additive(startTime, endTime);
             sprite.Color(startTime, color);
         }

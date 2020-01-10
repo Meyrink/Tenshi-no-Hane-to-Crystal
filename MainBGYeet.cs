@@ -7,7 +7,7 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
-		    var layer = GetLayer("White BG");
+		    var layer = GetLayer("");
             var yeetBg = layer.CreateSprite("Meguru.jpg",OsbOrigin.Centre); 
             yeetBg.Fade(0, 0);
 

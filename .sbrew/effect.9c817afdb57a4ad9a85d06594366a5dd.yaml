@@ -1,5 +1,5 @@
 ﻿FormatVersion: 6
-Name: "White BG"
+Name: "MainBGYeet"
 Script: "MainBGYeet"
 Config:
   RandomSeed:
@@ -7,8 +7,8 @@ Config:
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  73568c14bae04478917f574a2d7ec515:
-    Name: "White BG"
+  d0937155201c4363a488f297c215aeb8:
+    Name: ""
     OsbLayer: Background
     DiffSpecific: No
     Visible: Yes
