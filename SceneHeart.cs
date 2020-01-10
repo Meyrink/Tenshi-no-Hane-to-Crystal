@@ -25,7 +25,7 @@ namespace StorybrewScripts
 		    var layer = GetLayer("Heart");
 
             var heart = layer.CreateSprite("sb/scenes/heart.jpg", OsbOrigin.Centre);
-            heart.Fade(OsbEasing.OutSine, 226033, 227396, 0, 0.2);
+            heart.Fade(226033, 227396, 0, 0.2);
             heart.Fade(OsbEasing.InSine, 227396, 227851, 0.2, 0.5);
             heart.Scale(226033, 1.4);
             heart.Fade(266033, 0);

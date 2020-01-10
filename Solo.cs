@@ -25,7 +25,7 @@ namespace StorybrewScripts
             zoomIn(layer, "sb/bg/s2.jpg", 215124, 218760, 1.02);
             slideShow(layer, "sb/bg/s3.jpg", 218760, 220578, OsbOrigin.CentreLeft, -10, true, false);
             slideShow(layer, "sb/bg/s4.jpg", 220578, 222624, OsbOrigin.CentreLeft, -10, true, false);
-            slideShow(layer, "sb/bg/s5.jpg", 222624, 226033, OsbOrigin.CentreLeft, -20, true, true);
+            slideShow(layer, "sb/bg/s5.jpg", 222624, 226260, OsbOrigin.CentreLeft, -20, true, true);
         }
 
         private void slideShow(StoryboardLayer layer, string path, double startTime, double endTime, OsbOrigin origin, double moveBy, bool fadeIn, bool fadeOut)
@@ -49,16 +49,16 @@ namespace StorybrewScripts
             {
                 sprite.Fade(easing, startTime - Constants.beatLength * fadeby, startTime, 0, 1);
             }
-            else
+            else if (!fadeIn)
             {
                 sprite.Fade(startTime , 1);
             }
 
             if (fadeOut) // Check if i want to have a slow fadeout or instant
             {
-                sprite.Fade(endTime - Constants.beatLength * 3, endTime, 1, 0.3);
+                sprite.Fade(endTime - Constants.beatLength * 3, endTime, 1, 0);
             }
-            else
+            else if (!fadeOut)
             {
                 sprite.Fade(endTime, 0);
             }

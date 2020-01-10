@@ -2,6 +2,15 @@
 Name: "SceneHeartParticles"
 Script: "SceneHeartParticles"
 Config:
+  minSpeed:
+    Type: "System.Double"
+    Value: "100"
+  maxSpeed:
+    Type: "System.Double"
+    Value: "300"
+  particleAmount:
+    Type: "System.Int32"
+    Value: "300"
   RandomSeed:
     Type: "System.Int32"
     Value: "3"

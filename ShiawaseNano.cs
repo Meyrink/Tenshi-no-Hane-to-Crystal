@@ -123,7 +123,7 @@ namespace StorybrewScripts
 
         private void generateCircularEffect(double startTime, double endTime)
         {
-            int barCount = 20;
+            int barCount = 16;
             var angleInc = (Math.PI * 2) / barCount;
             double angle = 0;
             int radius = 240;
@@ -140,10 +140,10 @@ namespace StorybrewScripts
                     (float)(240 + Math.Sin(angle) * radius)
                 );
 
-                var bar = GetLayer("").CreateSprite("sb/pixel.png", OsbOrigin.Centre);
+                var bar = GetLayer("").CreateSprite("sb/particles/circleb.png", OsbOrigin.Centre);
                 bar.Fade(startTime, startTime + 227, 0, 1);
                 bar.Additive(startTime, endTime);
-                bar.ScaleVec(startTime, endTime - 227, 50, 3, 70, 1);
+                bar.ScaleVec(startTime, endTime - 227, 0.1, 0.005, 0.2, 0.01);
                 bar.Rotate(startTime, angle);
                 bar.Move(easing, startTime, startTime + 227, center, position);
                 // Expanding from center
@@ -152,7 +152,7 @@ namespace StorybrewScripts
                 // Grouping at center
                 distance = Vector2.Subtract(new Vector2(320, 240), bar.PositionAt(endTime - 227));
                 bar.Move(endTime - 227, endTime, bar.PositionAt(endTime - 227), Vector2.Add(bar.PositionAt(endTime - 227), distance));
-                bar.ScaleVec(endTime - 227, endTime, 80, 1, 1, 1);
+                bar.ScaleVec(endTime - 227, endTime, 0.2, 0.01, 0.005, 0.005);
                 bar.Fade(endTime - 227, endTime, bar.OpacityAt(endTime - 227), 0);
 
                 angle -= angleInc;

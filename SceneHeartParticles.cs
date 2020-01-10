@@ -14,6 +14,15 @@ namespace StorybrewScripts
 {
     public class SceneHeartParticles : StoryboardObjectGenerator
     {
+        [Configurable]
+        public double minSpeed = 50; // Lower, is faster
+
+        [Configurable]
+        public double maxSpeed = 300;
+
+        [Configurable]
+        public int particleAmount = 300;
+
         static Color4 Color1 = new Color4(215, 178, 211, 1);
 
         static Color4 Color2 = new Color4(90, 97, 151, 1);
@@ -24,11 +33,35 @@ namespace StorybrewScripts
 
         public override void Generate()
         {
-            upwardParticles(227851, 241033, 200, 150, 20);
-            upwardParticles(227851, 241033, 100, 75, 10);
-
+            upwardParticles(227851, 241033, particleAmount);
             sparkle(241942, 264215, 70, "sb/particles/circleb.png");
             glow(241942, 264215, 35, "sb/particles/light.png");
+            flare(241487, 264215, new Vector2(800, 460));
+            flare(241487, 264215, new Vector2(-200, 60));
+
+            // Shadow
+            var vig = GetLayer("").CreateSprite("sb/vig.png", OsbOrigin.Centre);
+            float vigOpacity = 0.7f;
+            vig.Fade(227396, 227624, 0, vigOpacity);
+            vig.Scale(227396, 480.0 / 1080);
+            vig.Fade(241033, 241487, vigOpacity, 0);
+        }
+
+        private void flare(double startTime, double endTime, Vector2 pos)
+        {
+            float flareOpacity = 0.5f;
+
+            var sprite = GetLayer("").CreateSprite("sb/flares/light2.jpg", OsbOrigin.Centre, pos);
+            sprite.Additive(startTime, endTime + Constants.beatLength);
+            sprite.Scale(startTime, 0.8);
+            sprite.Fade(startTime, startTime + Constants.beatLength, 0, flareOpacity);
+
+            sprite.StartLoopGroup(startTime + Constants.beatLength * 2, 12);
+                sprite.Fade(0, Constants.beatLength * 2, flareOpacity, 0.2);
+                sprite.Fade(Constants.beatLength * 2, Constants.beatLength * 4, 0.2, flareOpacity);
+            sprite.EndGroup();
+
+            sprite.Fade(endTime, endTime + Constants.beatLength, sprite.OpacityAt(endTime), 0);
         }
 
         private void glow(double startTime, double endTime, int particleNum, string path)
@@ -94,21 +127,22 @@ namespace StorybrewScripts
                 relativeStart += timeStep;
             }
         }
-        private void upwardParticles(double startTime, double endTime, int particleNum, int speed, double scaling)
+        private void upwardParticles(double startTime, double endTime, int particleNum)
         {
             double duration = endTime - startTime;
             double timeStep = duration / particleNum;
             double relativeStart = startTime;
-            double moveDuration = timeStep * speed;
+            
 
             for (int i = 0; i < particleNum; i++)
             {
-                double scale = Random(2, 4);
+                double moveDuration = timeStep * Random(minSpeed, maxSpeed);
+                double scale = Random(1, 10);
                 Vector2 initialPos = new Vector2(Random(-107, 747), Random(120 * 3, 480 + 10));
 
                 var particle = GetLayer("").CreateSprite("sb/particles/tinyFloat.png", OsbOrigin.Centre, initialPos);
                 particle.Additive(relativeStart, relativeStart + moveDuration);
-                particle.Scale(relativeStart, scale/scaling);
+                particle.Scale(relativeStart, scale/20);
                 particle.Fade(relativeStart, relativeStart + 227, 0, 1);
                 particle.MoveY(relativeStart, relativeStart + moveDuration, particle.PositionAt(relativeStart).Y, -10);
 
