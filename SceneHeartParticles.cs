@@ -42,8 +42,8 @@ namespace StorybrewScripts
             // Shadow
             var vig = GetLayer("").CreateSprite("sb/vig.png", OsbOrigin.Centre);
             float vigOpacity = 0.7f;
-            vig.Fade(227396, 227624, 0, vigOpacity);
-            vig.Scale(227396, 480.0 / 1080);
+            vig.Fade(226942, 227624, 0, vigOpacity);
+            vig.Scale(226942, 480.0 / 1080);
             vig.Fade(241033, 241487, vigOpacity, 0);
         }
 
