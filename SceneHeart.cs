@@ -27,7 +27,6 @@ namespace StorybrewScripts
             var heart = layer.CreateSprite("sb/scenes/heart.jpg", OsbOrigin.Centre);
             heart.Fade(OsbEasing.InSine, 226033, 227851, 0, 0.5);
             heart.Scale(226033, 1.4);
-            heart.Fade(266033, 0);
 
             // Moving heart position to centre
             var center = new Vector2(320, 240);
@@ -52,13 +51,14 @@ namespace StorybrewScripts
             heart.Move(OsbEasing.InOutCubic, 240578, 242396, heart.PositionAt(240578).X, heart.PositionAt(240578).Y, center.X , center.Y * (float)(846f/720f));
             heart.Scale(OsbEasing.InOutCubic, 240578, 242396, 1.4, Constants.screenScale);
             heart.Fade(OsbEasing.InOutCubic, 240578, 242396, heart.OpacityAt(240578), 1);
+            heart.Fade(266033, 0);
 
             // Meguru Expressions
             Vector2 face = Helpers.locationHandler(610.5f, 347.5f);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer1.jpg", 245351, 249215, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer2.jpg", 248987, 256942, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/heartLayer3.jpg", 256715, 261942, face.X, face.Y, layer);
-            OsbSprite heartFinal = Helpers.moveScaleAndFadeIn("sb/scenes/heartLayer4.jpg", 261715, 261715, face.X, face.Y, layer);
+            OsbSprite heartFinal = Helpers.moveScaleAndFadeIn("sb/scenes/heartLayer4.jpg", 261715, 261715, face.X, face.Y, layer); 
             heartFinal.Fade(266033, 0);
         }
 

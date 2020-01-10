@@ -18,9 +18,6 @@ namespace StorybrewScripts
         public float gradientOpacity = 0.7f;
 
         [Configurable]
-        public float sdbgScale = 0.9f;
-
-        [Configurable]
         public float sdScale = 0.57f;
         public override void Generate()
         {
@@ -36,18 +33,12 @@ namespace StorybrewScripts
             zoomFlipEffect(bg, 141942);
             bg.Fade(142624, 0);
 
-            // SD Scenes 
             double startTime = 128305;
             double endTime = 141260;
-
             var bgB = layer.CreateSprite("sb/bg/meguRoomB.jpg", OsbOrigin.Centre);
             bgB.Scale(startTime, Constants.screenScale);
             bgB.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
             bgB.Fade(endTime, endTime + Constants.beatLength * 0.5f, bgB.OpacityAt(endTime), 0);
-
-            // Orange Background for chibi scenes
-            // var sdbg = layer.CreateSprite("sb/sdbg.png", OsbOrigin.Centre);
-            // foldInOut(sdbg, startTime, endTime, sdbgScale);
 
             // Chibi Scenes
             fadeInOut(layer, "sb/sd/RoomSD1.jpg", 128987, sdScale);
@@ -92,14 +83,6 @@ namespace StorybrewScripts
             sprite.Scale(startTime - Constants.beatLength * 0.5f, scale);
             sprite.Fade(startTime - Constants.beatLength * 0.5f, startTime, 0, 1);
             return sprite;
-        }
-
-        private void foldInOut(OsbSprite sprite, double startTime, double endTime, float scale)
-        {
-            sprite.ScaleVec(startTime, startTime + Constants.beatLength * 0.5f, scale, 0, scale, scale);
-            sprite.Fade(startTime, startTime + Constants.beatLength * 0.5f, 0, 1);
-            sprite.ScaleVec(endTime, endTime + Constants.beatLength * 0.5f, scale, scale, scale , 0);
-            sprite.Fade(endTime, endTime + Constants.beatLength * 0.5f, sprite.OpacityAt(endTime), 0);
         }
 
         private void zoomFlipEffect(OsbSprite sprite, double startTime)

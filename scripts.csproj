@@ -52,7 +52,6 @@
   </Target>
   -->
   <ItemGroup>
-    <Compile Include="Credit.cs" />
     <Compile Include="Flash.cs" />
     <Compile Include="Highlight.cs" />
     <Compile Include="InMyHeart.cs" />
@@ -62,6 +61,7 @@
     <Compile Include="Lyrics.cs" />
     <Compile Include="MainBGYeet.cs" />
     <Compile Include="MeguruSmile.cs" />
+    <Compile Include="PreOutro.cs" />
     <Compile Include="RoomClub.cs" />
     <Compile Include="RoomMeguru.cs" />
     <Compile Include="RoomSineWave.cs" />

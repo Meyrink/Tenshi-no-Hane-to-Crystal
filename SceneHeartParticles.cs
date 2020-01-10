@@ -34,10 +34,12 @@ namespace StorybrewScripts
         public override void Generate()
         {
             upwardParticles(227851, 241033, particleAmount);
-            sparkle(241942, 264215, 70, "sb/particles/circleb.png");
-            glow(241942, 264215, 35, "sb/particles/light.png");
-            flare(241487, 264215, new Vector2(800, 460));
-            flare(241487, 264215, new Vector2(-200, 60));
+
+            sparkle(241942, 265805, 70, "sb/particles/circleb.png");
+            glow(241942, 265805, 35, "sb/particles/light.png");
+
+            flare(241487, 266033, new Vector2(800, 460));
+            flare(241487, 266033, new Vector2(-200, 60));
 
             // Shadow
             var vig = GetLayer("").CreateSprite("sb/vig.png", OsbOrigin.Centre);

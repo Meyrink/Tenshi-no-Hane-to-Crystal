@@ -53,8 +53,9 @@ namespace StorybrewScripts
             cinematicColor(219896, Color4.AliceBlue, 2);
             cinematicColor(222624, Color4.CadetBlue, 3);
             
-            // Inst 3
-            // flashOut(266033, 266715);
+            // Kiaot 3 to Inst 3
+            flashInColor(264669, 266033, Color4.CadetBlue);
+            flashOutColor(266033, 266715, Color4.LightSkyBlue);
         }
 
         private void flashOut(double startTime, double endTime) 

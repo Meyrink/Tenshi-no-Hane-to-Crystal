@@ -24,6 +24,10 @@ namespace StorybrewScripts
 
             var tempBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
             tempBg.ScaleVec(282851, 854, 480);
+            
+            tempBg.Fade(280124, 280578, 0, 1);
+            tempBg.Fade(280805, 0);
+
             tempBg.Fade(282851, 1);
             tempBg.Fade(293668, 0);
 

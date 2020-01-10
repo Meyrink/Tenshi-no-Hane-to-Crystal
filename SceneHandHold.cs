@@ -23,6 +23,7 @@ namespace StorybrewScripts
             handHold.Fade(98760, 1);
             handHold.Fade(126033, 0);
             
+            // Meguru Expressions
             Vector2 face = Helpers.locationHandler(930f, 177f);
             Helpers.moveScaleAndFade("sb/scenes/handholdLayer1.jpg", 105805, 113078, face.X, face.Y, layer);
             Helpers.moveScaleAndFade("sb/scenes/handholdLayer2.jpg", 112851, 121942, face.X, face.Y, layer);

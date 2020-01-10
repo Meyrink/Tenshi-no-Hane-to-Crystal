@@ -1,13 +1,13 @@
 ﻿FormatVersion: 6
-Name: "Credit"
-Script: "Credit"
+Name: "PreOutro"
+Script: "PreOutro"
 Config:
   RandomSeed:
     Type: "System.Int32"
     Value: "0"
     DisplayName: "Random seed"
 Layers:
-  fee1c378fecb4ee1bd99cf81afbb29f9:
+  c06e0f0bc683445c8133b9ba047c3aee:
     Name: ""
     OsbLayer: Background
     DiffSpecific: No
