@@ -24,6 +24,40 @@ namespace StorybrewScripts
         public override void Generate()
         {
 		    glow(182396, 209442, 30, "sb/particles/gawo.png");
+            generateParticles(182624, 209442, 300);
+        }
+
+        private void generateParticles(double startTime, double endTime, int particleNum)
+        {
+            double duration = endTime - startTime;
+            double timeStep = duration / particleNum;
+            double relativeStart = startTime;
+            
+            for (int i = 0; i < particleNum; i++)
+            {
+                var easing = (OsbEasing)Random(1, 10);
+                double moveDuration = timeStep * Random(20, 200);
+                double scale = Random(1, 6);
+                Vector2 rPos = new Vector2(Random(-107, 747), Random(0, 480));
+
+                var particle = GetLayer("").CreateSprite("sb/particles/tinyfloat.png", OsbOrigin.Centre, rPos);
+                particle.Additive(relativeStart, relativeStart + moveDuration);
+                particle.Scale(relativeStart, scale/20);
+                particle.Color(relativeStart, Colors[Random(Colors.Length)]);
+                particle.Fade(easing, relativeStart, relativeStart + 227, 0, 0.3);
+                particle.Move(easing, relativeStart, relativeStart + moveDuration, particle.PositionAt(relativeStart), 760, Random(-10, 490));
+
+                // Yeet if reach offscreen at X
+                if(particle.PositionAt(relativeStart + moveDuration).X > 750 )
+                {
+                    particle.Fade(relativeStart + moveDuration, relativeStart + moveDuration + timeStep, 1, 0);
+                }
+                
+                // Global Fadeout
+                particle.Fade(endTime, endTime + Constants.beatLength, particle.OpacityAt(endTime), 0); 
+                
+                relativeStart += timeStep;
+            }
         }
 
         private void glow(double startTime, double endTime, int particleNum, string path)

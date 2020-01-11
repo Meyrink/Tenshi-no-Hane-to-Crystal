@@ -26,6 +26,45 @@ namespace StorybrewScripts
             slideShow(layer, "sb/bg/s3.jpg", 218760, 220578, OsbOrigin.CentreLeft, -10, true, false);
             slideShow(layer, "sb/bg/s4.jpg", 220578, 222624, OsbOrigin.CentreLeft, -10, true, false);
             slideShow(layer, "sb/bg/s5.jpg", 222624, 226260, OsbOrigin.CentreLeft, -20, true, true);
+
+            generateParticles(211487, 214896, 100, 0.3);
+            generateParticles(215124, 218533, 100, 0.3);
+            generateParticles(218760, 220351, 50, 0.2);
+            generateParticles(220578, 222396, 50, 0.2);
+            generateParticles(222624, 225351, 100, 0.1);
+        }
+
+        private void generateParticles(double startTime, double endTime, int particleNum, double opacity)
+        {
+            double duration = endTime - startTime;
+            double timeStep = duration / particleNum;
+            double relativeStart = startTime;
+            
+            for (int i = 0; i < particleNum; i++)
+            {
+                var easing = OsbEasing.InOutSine;
+                double moveDuration = timeStep * Random(20, 200);
+                double scale = Random(1, 6);
+                Vector2 rPos = new Vector2(Random(-107, 747), Random(0, 480));
+
+                var particle = GetLayer("").CreateSprite("sb/particles/tinyfloat.png", OsbOrigin.Centre, rPos);
+                particle.Additive(relativeStart, relativeStart + moveDuration);
+                particle.Scale(relativeStart, scale/20);
+                particle.Fade(easing, relativeStart, relativeStart + 227, 0, opacity);
+                particle.Move(easing, relativeStart, relativeStart + moveDuration, particle.PositionAt(relativeStart), Random(-150, 750), Random(-10, 490));
+
+                // Yeet if reach offscreen at X
+                var p = particle.PositionAt(relativeStart + moveDuration);
+                if(p.X > 747 || p.X < -107 || p.Y > 480 || p.Y < 0)
+                {
+                    particle.Fade(relativeStart + moveDuration, relativeStart + moveDuration + timeStep, 1, 0);
+                }
+                
+                // Global Fadeout
+                particle.Fade(endTime, endTime + Constants.beatLength * 0.5, particle.OpacityAt(endTime), 0); 
+                
+                relativeStart += timeStep;
+            }
         }
 
         private void slideShow(StoryboardLayer layer, string path, double startTime, double endTime, OsbOrigin origin, double moveBy, bool fadeIn, bool fadeOut)

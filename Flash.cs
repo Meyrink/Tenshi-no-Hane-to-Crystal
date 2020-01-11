@@ -34,6 +34,7 @@ namespace StorybrewScripts
             flashInColor(0.3f, 98533, 98760, Color4.LightSkyBlue);
             flashOutColor(98760, 100351, Color4.LightSkyBlue);
             flashInColor(0.3f, 125805, 126033, Color4.LightSkyBlue);
+            cinematicColor(113305, Color4.LightSkyBlue, 4);
 
             // Inst 2
             flashOut(127851, 128305);
@@ -45,6 +46,7 @@ namespace StorybrewScripts
             flashInColor(0.3f, 182169, 182396, Color4.SteelBlue);
             flashOut(182396, 183533);
             flashInColor(0.3f, 209442, 209669, Color4.SteelBlue);
+            cinematicColor(196942, Color4.SteelBlue, 4);
 
             // Solo
             flashOutColor(211487, 212624, Color4.LightGoldenrodYellow);
@@ -54,8 +56,9 @@ namespace StorybrewScripts
             cinematicColor(222624, Color4.CadetBlue, 3);
             
             // Kiaot 3 to Inst 3
-            flashInColor(0.5f, 264669, 266033, Color4.CadetBlue);
+            flashInColor(0.3f, 265351, 266033, Color4.CadetBlue);
             flashOutColor(266033, 266715, Color4.LightSkyBlue);
+            cinematicColor(274669, Color4.LightSkyBlue, 4);
         }
 
         private void flashOut(double startTime, double endTime) 
