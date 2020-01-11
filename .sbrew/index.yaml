@@ -4,7 +4,6 @@ BeatmapId: 2260731
 BeatmapName: "Forever"
 Assemblies:
 Layers:
-  - "c9e523dbb966487aa8376657260e1ee1"
   - "d0937155201c4363a488f297c215aeb8"
   - "34d7691a749e4ff59f748c4675eabec3"
   - "5e00df34acef42239d3a8514b7886b5b"
@@ -25,6 +24,7 @@ Layers:
   - "c06e0f0bc683445c8133b9ba047c3aee"
   - "c796a15a7b1e408e8dd4e1676f4ae3b9"
   - "fc6330637aaf40c68063a57c5feaae38"
+  - "c9e523dbb966487aa8376657260e1ee1"
   - "a412464aa96a42f995472444c8fce0a9"
   - "04ea7781ebd3492a94c2c50b8efc70d2"
   - "09d1d7ff2e134c378db24dcbbb29bc9d"
