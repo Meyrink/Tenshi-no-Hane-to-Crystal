@@ -1,14 +1,7 @@
 using OpenTK;
 using OpenTK.Graphics;
-using StorybrewCommon.Mapset;
 using StorybrewCommon.Scripting;
 using StorybrewCommon.Storyboarding;
-using StorybrewCommon.Storyboarding.Util;
-using StorybrewCommon.Subtitles;
-using StorybrewCommon.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace StorybrewScripts
 {
@@ -21,6 +14,7 @@ namespace StorybrewScripts
         static Color4 Color3 = new Color4(248, 158, 150, 1);
 
         Color4[] Colors = { Color1, Color2, Color3 };
+
         public override void Generate()
         {
 		    glow(182396, 209442, 30, "sb/particles/gawo.png");

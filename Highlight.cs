@@ -9,7 +9,10 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
-            ring(98760); // Kiai 1
+            // I did this manually because i didn't want to automate it to follow certain hitsounds or everyobjects
+            
+            // Kiai 1
+            ring(98760); 
             ring(100351);
             ring(100578);
             ring(102169);
@@ -59,7 +62,8 @@ namespace StorybrewScripts
             light(120124);
             light(120578);
 
-            ring(182396); // Kiai 2
+            // Kiai 2
+            ring(182396); 
             ring(183987);
             ring(184215);
             ring(185805);
@@ -109,7 +113,8 @@ namespace StorybrewScripts
             light(203760);
             light(204215);
 
-            ring(242396); // Kiai 3
+            // Kiai 3
+            ring(242396); 
             ring(243533);
             ring(243987);
             ring(244215);

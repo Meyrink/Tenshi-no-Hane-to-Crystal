@@ -7,7 +7,7 @@ Config:
     Value: "280578"
   frameCount:
     Type: "System.Int32"
-    Value: "47"
+    Value: "48"
   RandomSeed:
     Type: "System.Int32"
     Value: "0"

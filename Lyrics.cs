@@ -5,7 +5,6 @@ using StorybrewCommon.Storyboarding;
 using StorybrewCommon.Subtitles;
 using System;
 using System.Drawing;
-using System.IO;
 
 namespace StorybrewScripts
 {

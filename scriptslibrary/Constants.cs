@@ -9,9 +9,7 @@ namespace StorybrewScripts
         public static float xFloor = -107;
         public static float xCeil = 747;
         public static float width = 854;
-
         public static float height = 480;
-
         public static double screenScale = 480.0 / 720;
     }
 

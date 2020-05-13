@@ -1,14 +1,8 @@
 using OpenTK;
 using OpenTK.Graphics;
-using StorybrewCommon.Mapset;
 using StorybrewCommon.Scripting;
 using StorybrewCommon.Storyboarding;
-using StorybrewCommon.Storyboarding.Util;
-using StorybrewCommon.Subtitles;
-using StorybrewCommon.Util;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace StorybrewScripts
 {
@@ -24,11 +18,13 @@ namespace StorybrewScripts
         public double timeStep = 500;
 
         Color4[] Colors = { Color1,  Color2 };
+
         public override void Generate()
         {
             // Inst 1
             generateWave("sb/particles/tinyFloat.png", 70, 8533, 21260, 120, 40, 50);
             generateWave("sb/particles/tinyFloat.png", 70, 8533, 21260, 120, 40, 480-50);
+
             // Inst 2
             generateWave("sb/particles/tinyFloat.png", 70, 128533, 141260, 120, 40, 50);
             generateWave("sb/particles/tinyFloat.png", 70, 128533, 141260, 120, 40, 480-50);

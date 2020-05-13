@@ -9,6 +9,7 @@ namespace StorybrewScripts
         {
 		    var layer = GetLayer("");
             var yeetBg = layer.CreateSprite("Meguru.jpg",OsbOrigin.Centre); 
+            yeetBg.Scale(0, Constants.screenScale);
             yeetBg.Fade(0, 0);
 
             var whiteBg = layer.CreateSprite("sb/pixel.png", OsbOrigin.Centre);
